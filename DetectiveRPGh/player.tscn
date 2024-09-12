@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://k782roghdpuo"]
+[gd_scene load_steps=9 format=3 uid="uid://k782roghdpuo"]
 
 [ext_resource type="Script" path="res://player.gd" id="1_bdwqq"]
 [ext_resource type="Texture2D" uid="uid://6hapkfxw8jsq" path="res://Moonlight.png" id="2_flxyt"]
 [ext_resource type="Script" path="res://Label.gd" id="3_tuww6"]
+[ext_resource type="Script" path="res://OverworldHealth.gd" id="4_2illt"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_ywicx"]
 
@@ -37,3 +38,11 @@ transform = Transform3D(1, 0, 0, 0, 0.574391, 0.818581, 0, -0.818581, 0.574391, 
 offset_right = 1152.0
 offset_bottom = 245.0
 script = ExtResource("3_tuww6")
+
+[node name="OverworldHealth" type="Label" parent="."]
+offset_left = 1008.0
+offset_top = 15.0
+offset_right = 1121.0
+offset_bottom = 104.0
+theme_override_font_sizes/font_size = 20
+script = ExtResource("4_2illt")
