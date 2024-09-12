@@ -1,0 +1,39 @@
+[gd_scene load_steps=8 format=3 uid="uid://k782roghdpuo"]
+
+[ext_resource type="Script" path="res://player.gd" id="1_bdwqq"]
+[ext_resource type="Texture2D" uid="uid://6hapkfxw8jsq" path="res://Moonlight.png" id="2_flxyt"]
+[ext_resource type="Script" path="res://Label.gd" id="3_tuww6"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_ywicx"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6ofbg"]
+albedo_texture = ExtResource("2_flxyt")
+
+[sub_resource type="ORMMaterial3D" id="ORMMaterial3D_8qcry"]
+transparency = 3
+alpha_hash_scale = 1.0
+alpha_antialiasing_mode = 0
+
+[sub_resource type="QuadMesh" id="QuadMesh_h4bee"]
+material = SubResource("ORMMaterial3D_8qcry")
+
+[node name="Player" type="CharacterBody3D"]
+script = ExtResource("1_bdwqq")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_ywicx")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+material_override = SubResource("StandardMaterial3D_6ofbg")
+mesh = SubResource("QuadMesh_h4bee")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.949107, 0.314953, 0, -0.314953, 0.949107, 0, 1.00125, 1.77112)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.574391, 0.818581, 0, -0.818581, 0.574391, 0, 3.4834, 2.26731)
+
+[node name="Label" type="Label" parent="."]
+offset_right = 1152.0
+offset_bottom = 245.0
+script = ExtResource("3_tuww6")

@@ -1,0 +1,35 @@
+[gd_scene load_steps=8 format=3 uid="uid://ybmyptcftyeq"]
+
+[ext_resource type="PackedScene" uid="uid://1nlg0bi7yola" path="res://solid.tscn" id="1_288n6"]
+[ext_resource type="PackedScene" uid="uid://k782roghdpuo" path="res://player.tscn" id="2_5o6bn"]
+[ext_resource type="PackedScene" uid="uid://i7e708v2icx7" path="res://NPC.tscn" id="3_ldrmx"]
+[ext_resource type="Script" path="res://NPC.gd" id="4_k8x7o"]
+[ext_resource type="PackedScene" uid="uid://oxvm4ywu5g2a" path="res://enemy.tscn" id="5_1rk4w"]
+[ext_resource type="Script" path="res://enemy.gd" id="6_yd8bu"]
+[ext_resource type="PackedScene" uid="uid://c2787nxvxwr4s" path="res://loadingzone.tscn" id="7_70d12"]
+
+[node name="Node" type="Node"]
+
+[node name="Ground" parent="." instance=ExtResource("1_288n6")]
+transform = Transform3D(15, 0, 0, 0, 1, 0, 0, 0, 50, -14.2699, -2.65182, -20.6736)
+
+[node name="Player" parent="." instance=ExtResource("2_5o6bn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.1814, -1.50584, 0.59336)
+
+[node name="NPC" parent="." instance=ExtResource("3_ldrmx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.3888, -0.942427, -0.639583)
+script = ExtResource("4_k8x7o")
+msg1 = "One"
+msg2 = "Two"
+
+[node name="Enemy" parent="." instance=ExtResource("5_1rk4w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.1743, -0.949308, -1.36815)
+script = ExtResource("6_yd8bu")
+
+[node name="LoadingZone" parent="." instance=ExtResource("7_70d12")]
+
+[connection signal="body_entered" from="NPC" to="NPC" method="_on_body_entered"]
+[connection signal="body_exited" from="NPC" to="Player" method="_on_area_3d_body_exited"]
+[connection signal="body_exited" from="NPC" to="NPC" method="_on_body_exited"]
+[connection signal="speaking" from="NPC" to="Player" method="_on_area_3d_speaking"]
+[connection signal="body_entered" from="Enemy" to="Player" method="_on_area_3d_2_body_entered"]

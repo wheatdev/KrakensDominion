@@ -1,0 +1,21 @@
+[gd_scene load_steps=5 format=3 uid="uid://i7e708v2icx7"]
+
+[ext_resource type="Texture2D" uid="uid://dhvqhwnb38i32" path="res://legallyDistinct.png" id="1_gj2gp"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_jjn8f"]
+size = Vector3(5.67384, 1.43555, 5.85991)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_uc2sh"]
+albedo_texture = ExtResource("1_gj2gp")
+
+[sub_resource type="QuadMesh" id="QuadMesh_2uhhj"]
+
+[node name="NPC" type="Area3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.146684, 0.830681, 0.0617752)
+shape = SubResource("BoxShape3D_jjn8f")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+material_override = SubResource("StandardMaterial3D_uc2sh")
+mesh = SubResource("QuadMesh_2uhhj")

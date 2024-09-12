@@ -1,0 +1,21 @@
+[gd_scene load_steps=5 format=3 uid="uid://oxvm4ywu5g2a"]
+
+[ext_resource type="Texture2D" uid="uid://cg8pr4qkb7qyt" path="res://John Player.png" id="1_3qpji"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_2hy73"]
+size = Vector3(2.41968, 1, 2.53198)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gfj0u"]
+albedo_texture = ExtResource("1_3qpji")
+
+[sub_resource type="QuadMesh" id="QuadMesh_6b7ie"]
+
+[node name="Enemy" type="Area3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.05896, 0, -0.055542)
+shape = SubResource("BoxShape3D_2hy73")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+material_override = SubResource("StandardMaterial3D_gfj0u")
+mesh = SubResource("QuadMesh_6b7ie")

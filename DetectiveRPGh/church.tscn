@@ -1,0 +1,46 @@
+[gd_scene load_steps=8 format=3 uid="uid://cscvwut5u62l8"]
+
+[ext_resource type="PackedScene" uid="uid://1nlg0bi7yola" path="res://solid.tscn" id="1_am2r2"]
+[ext_resource type="PackedScene" uid="uid://k782roghdpuo" path="res://player.tscn" id="2_p8ip0"]
+[ext_resource type="PackedScene" uid="uid://i7e708v2icx7" path="res://NPC.tscn" id="3_d508t"]
+[ext_resource type="Script" path="res://NPC.gd" id="4_dtjrv"]
+[ext_resource type="PackedScene" uid="uid://oxvm4ywu5g2a" path="res://enemy.tscn" id="5_48kfx"]
+[ext_resource type="Script" path="res://enemy.gd" id="6_c8l4i"]
+[ext_resource type="PackedScene" uid="uid://c2787nxvxwr4s" path="res://loadingzone.tscn" id="7_756pd"]
+
+[node name="Node" type="Node"]
+
+[node name="Player" parent="." instance=ExtResource("2_p8ip0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.1814, 0.772451, -1.98059)
+
+[node name="NPC" parent="." instance=ExtResource("3_d508t")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.1081, -0.00320822, -13.4583)
+script = ExtResource("4_dtjrv")
+
+[node name="Enemy" parent="." instance=ExtResource("5_48kfx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.86102, 10.7722, 0)
+script = ExtResource("6_c8l4i")
+
+[node name="LoadingZone" parent="." instance=ExtResource("7_756pd")]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 1, -13.5551, 0.992652, 2.0619)
+type = 2
+
+[node name="Ground" parent="." instance=ExtResource("1_am2r2")]
+transform = Transform3D(15, 0, 0, 0, 1, 0, 0, 0, 50, -14.2699, -2.65182, -20.6736)
+
+[node name="Ground2" parent="." instance=ExtResource("1_am2r2")]
+transform = Transform3D(5, 0, 0, 0, 10, 0, 0, 0, 50, -23.8429, 1.8822, -20.6736)
+
+[node name="Ground4" parent="." instance=ExtResource("1_am2r2")]
+transform = Transform3D(15, 0, 0, 0, 10, 0, 0, 0, 1, -14.1702, 1.8822, 3.8241)
+
+[node name="Ground3" parent="." instance=ExtResource("1_am2r2")]
+transform = Transform3D(5, 0, 0, 0, 10, 0, 0, 0, 50, -4.77373, 1.8822, -20.6736)
+
+[connection signal="body_entered" from="NPC" to="NPC" method="_on_body_entered"]
+[connection signal="body_exited" from="NPC" to="Player" method="_on_area_3d_body_exited"]
+[connection signal="body_exited" from="NPC" to="NPC" method="_on_body_exited"]
+[connection signal="speaking" from="NPC" to="Player" method="_on_area_3d_speaking"]
+[connection signal="body_entered" from="Enemy" to="Player" method="_on_area_3d_2_body_entered"]
+[connection signal="Swap" from="LoadingZone" to="Player" method="_on_loading_zone_swap"]
+[connection signal="body_entered" from="LoadingZone" to="LoadingZone" method="_on_body_entered"]
