@@ -1,0 +1,27 @@
+[gd_scene load_steps=7 format=3 uid="uid://d2hiyjvlg48mv"]
+
+[ext_resource type="Script" path="res://player.Btscn.gd" id="1_rqpwj"]
+[ext_resource type="Texture2D" uid="uid://cg8pr4qkb7qyt" path="res://John Player.png" id="2_5svex"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_ywicx"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qm8hi"]
+albedo_texture = ExtResource("2_5svex")
+
+[sub_resource type="ORMMaterial3D" id="ORMMaterial3D_8qcry"]
+transparency = 3
+alpha_hash_scale = 1.0
+alpha_antialiasing_mode = 0
+
+[sub_resource type="QuadMesh" id="QuadMesh_h4bee"]
+material = SubResource("ORMMaterial3D_8qcry")
+
+[node name="CharacterBody3D" type="CharacterBody3D"]
+script = ExtResource("1_rqpwj")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_ywicx")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+material_override = SubResource("StandardMaterial3D_qm8hi")
+mesh = SubResource("QuadMesh_h4bee")

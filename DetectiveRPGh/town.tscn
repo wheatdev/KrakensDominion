@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://c4xlkmgiydye0"]
+[gd_scene load_steps=10 format=3 uid="uid://c4xlkmgiydye0"]
 
 [ext_resource type="PackedScene" uid="uid://1nlg0bi7yola" path="res://solid.tscn" id="1_v2gin"]
 [ext_resource type="PackedScene" uid="uid://k782roghdpuo" path="res://player.tscn" id="2_o2qm1"]
@@ -8,17 +8,18 @@
 [ext_resource type="Script" path="res://enemy.gd" id="6_fw807"]
 [ext_resource type="PackedScene" uid="uid://bunodghviei7d" path="res://solidcircle.tscn" id="7_0p1nq"]
 [ext_resource type="PackedScene" uid="uid://c2787nxvxwr4s" path="res://loadingzone.tscn" id="8_h48aq"]
+[ext_resource type="PackedScene" uid="uid://b44bfg5ixkrir" path="res://fishing_spot.tscn" id="9_v6ee2"]
 
 [node name="Node" type="Node"]
 
 [node name="Ground" parent="." instance=ExtResource("1_v2gin")]
-transform = Transform3D(5, 0, 0, 0, 1, 0, 0, 0, 5, -14.2699, -2.65182, 0)
+transform = Transform3D(5, 0, 0, 0, 1, 0, 0, 0, 5, -14.2699, -2.65182, -5.34674)
 
 [node name="Ground3" parent="." instance=ExtResource("1_v2gin")]
-transform = Transform3D(5, 0, 0, 0, 1, 0, 0, 0, 5, -23.6744, -1.0509, 0)
+transform = Transform3D(5, 0, 0, 0, 1, 0, 0, 0, 5, -23.6744, -1.0509, -5.27698)
 
 [node name="Ground4" parent="." instance=ExtResource("1_v2gin")]
-transform = Transform3D(50, 0, 0, 0, 1, 0, 0, 0, 10, -12.1791, -1.0509, -7.47032)
+transform = Transform3D(50, 0, 0, 0, 1, 0, 0, 0, 5, -12.1791, -1.0509, -10.1245)
 
 [node name="Ground5" parent="." instance=ExtResource("1_v2gin")]
 transform = Transform3D(40, 0, 0, 0, 1, 0, 0, 0, 30, 21.1775, -1.0509, -17.5512)
@@ -54,10 +55,10 @@ transform = Transform3D(7.65584, 0, 6.43336, 0, 10, 0, -6.43336, 0, 7.65584, 14.
 transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 43.3786, 4.41444, -17.5512)
 
 [node name="Ground2" parent="." instance=ExtResource("1_v2gin")]
-transform = Transform3D(4.70114, 0.340544, 0, -1.70272, 0.940229, 0, 0, 0, 5, -18.9931, -1.84779, 0)
+transform = Transform3D(4.70114, 0.340544, 0, -1.70272, 0.940229, 0, 0, 0, 5, -18.9931, -1.84779, -5.30046)
 
 [node name="Player" parent="." instance=ExtResource("2_o2qm1")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.1814, -1.50584, 0.59336)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.1814, -1.50584, -5.47016)
 
 [node name="NPC3" parent="." instance=ExtResource("3_tfek3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -29.7736, -0.00320822, -13.4583)
@@ -84,6 +85,9 @@ transform = Transform3D(10, 0, 0, 0, 1, 0, 0, 0, 10, 27.2046, 0, -17.8819)
 [node name="LoadingZone" parent="." instance=ExtResource("8_h48aq")]
 transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 1, 29.9789, 2.36789, -30.731)
 type = 1
+
+[node name="FishingSpot" parent="." instance=ExtResource("9_v6ee2")]
+transform = Transform3D(5, 0, 0, 0, 1, 0, 0, 0, 5, -35.0669, 0.840957, -9.60977)
 
 [connection signal="body_entered" from="NPC3" to="NPC3" method="_on_body_entered"]
 [connection signal="body_exited" from="NPC3" to="Player" method="_on_area_3d_body_exited"]

@@ -29,7 +29,7 @@ material_override = SubResource("StandardMaterial3D_6ofbg")
 mesh = SubResource("QuadMesh_h4bee")
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.949107, 0.314953, 0, -0.314953, 0.949107, 0, 1.00125, 1.77112)
+transform = Transform3D(1, 0, 0, 0, 0.949107, 0.314953, 0, -0.314953, 0.949107, 0, 1.34165, 2.42619)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.574391, 0.818581, 0, -0.818581, 0.574391, 0, 3.4834, 2.26731)
