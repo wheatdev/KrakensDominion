@@ -1,0 +1,82 @@
+[gd_scene load_steps=8 format=3 uid="uid://ciogt46jib2vv"]
+
+[ext_resource type="Script" path="res://Combat_System.gd" id="1_buiva"]
+[ext_resource type="FontFile" uid="uid://fs7hq8j3napg" path="res://Dominion Fonts/beyond_wonderland/Beyond Wonderland.ttf" id="2_0wna8"]
+[ext_resource type="Script" path="res://Attack_Button.gd" id="3_xy3ja"]
+[ext_resource type="Script" path="res://Inventory_Button.gd" id="4_17ocx"]
+[ext_resource type="Script" path="res://Attacks_Menu.gd" id="4_vfbn5"]
+
+[sub_resource type="Theme" id="Theme_2vqcs"]
+default_font = ExtResource("2_0wna8")
+default_font_size = 30
+
+[sub_resource type="Theme" id="Theme_mr231"]
+default_font = ExtResource("2_0wna8")
+default_font_size = 30
+
+[node name="Combat_System" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_buiva")
+
+[node name="Options" type="BoxContainer" parent="."]
+modulate = Color(0.176471, 0.619608, 0.913725, 1)
+layout_mode = 2
+offset_left = 341.0
+offset_top = 417.0
+offset_right = 438.0
+offset_bottom = 552.0
+size_flags_horizontal = 0
+size_flags_vertical = 4
+theme = SubResource("Theme_2vqcs")
+vertical = true
+
+[node name="Attack_Button" type="Button" parent="Options"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Attack"
+script = ExtResource("3_xy3ja")
+
+[node name="Inventory_Button" type="Button" parent="Options"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Aquarium"
+script = ExtResource("4_17ocx")
+
+[node name="Defend_Button" type="Button" parent="Options"]
+layout_mode = 2
+text = "Defend"
+
+[node name="Attacks" type="ScrollContainer" parent="."]
+layout_mode = 0
+offset_left = 104.0
+offset_top = 417.0
+offset_right = 310.0
+offset_bottom = 560.0
+theme = SubResource("Theme_mr231")
+horizontal_scroll_mode = 0
+vertical_scroll_mode = 2
+script = ExtResource("4_vfbn5")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Attacks"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Basic_Attack" type="Button" parent="Attacks/VBoxContainer"]
+modulate = Color(0.913725, 0, 0, 1)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.0
+text = "Basic Attack"
+
+[node name="Button" type="Button" parent="Attacks/VBoxContainer"]
+modulate = Color(0.372549, 0.227451, 1, 1)
+layout_mode = 2
+text = "Sword Attack"
+
+[connection signal="pressed" from="Options/Attack_Button" to="Attacks" method="_on_attack_button_pressed"]
+[connection signal="pressed" from="Options/Inventory_Button" to="Options/Inventory_Button" method="_on_pressed"]
