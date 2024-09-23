@@ -1,10 +1,21 @@
-[gd_scene load_steps=8 format=3 uid="uid://ciogt46jib2vv"]
+[gd_scene load_steps=21 format=3 uid="uid://ciogt46jib2vv"]
 
 [ext_resource type="Script" path="res://Combat_System.gd" id="1_buiva"]
 [ext_resource type="FontFile" uid="uid://fs7hq8j3napg" path="res://Dominion Fonts/beyond_wonderland/Beyond Wonderland.ttf" id="2_0wna8"]
 [ext_resource type="Script" path="res://Attack_Button.gd" id="3_xy3ja"]
 [ext_resource type="Script" path="res://Inventory_Button.gd" id="4_17ocx"]
 [ext_resource type="Script" path="res://Attacks_Menu.gd" id="4_vfbn5"]
+[ext_resource type="Texture2D" uid="uid://dhvqhwnb38i32" path="res://legallyDistinct.png" id="6_c6wla"]
+[ext_resource type="Texture2D" uid="uid://basmihrm267yj" path="res://Clear sea water.jpg" id="6_h60mc"]
+[ext_resource type="Script" path="res://Aquarium_Tabs.gd" id="6_wr8ej"]
+[ext_resource type="Script" path="res://Aquarium_Inventory.gd" id="8_q0qlj"]
+[ext_resource type="Script" path="res://Coastal_Section.gd" id="9_peqsg"]
+[ext_resource type="Texture2D" uid="uid://b7uxrb3shek2" path="res://icon.svg" id="10_i0pd0"]
+[ext_resource type="Script" path="res://Shallows_Section.gd" id="11_nd1ui"]
+[ext_resource type="Script" path="res://Oceanic_Section.gd" id="13_rqv6m"]
+[ext_resource type="Script" path="res://Abyssal_Section.gd" id="14_3fuls"]
+[ext_resource type="Script" path="res://Volcanic_Section.gd" id="15_4n4r8"]
+[ext_resource type="Script" path="res://Glacial_Section.gd" id="16_qwi7o"]
 
 [sub_resource type="Theme" id="Theme_2vqcs"]
 default_font = ExtResource("2_0wna8")
@@ -13,6 +24,16 @@ default_font_size = 30
 [sub_resource type="Theme" id="Theme_mr231"]
 default_font = ExtResource("2_0wna8")
 default_font_size = 30
+
+[sub_resource type="Theme" id="Theme_gki45"]
+default_font = ExtResource("2_0wna8")
+default_font_size = 25
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ibnmv"]
+texture = ExtResource("6_h60mc")
+axis_stretch_horizontal = 2
+axis_stretch_vertical = 2
+modulate_color = Color(0.25098, 0.309804, 0.262745, 1)
 
 [node name="Combat_System" type="Control"]
 layout_mode = 3
@@ -78,5 +99,140 @@ modulate = Color(0.372549, 0.227451, 1, 1)
 layout_mode = 2
 text = "Sword Attack"
 
+[node name="Aquarium_Tabs" type="HBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 638.0
+offset_top = 2.0
+offset_right = 1151.0
+offset_bottom = 42.0
+theme = SubResource("Theme_gki45")
+script = ExtResource("6_wr8ej")
+
+[node name="Coastal_Tab" type="Button" parent="Aquarium_Tabs"]
+modulate = Color(0.176471, 0.619608, 0.913725, 1)
+layout_mode = 2
+text = "Coastal"
+
+[node name="Shallows_Tab" type="Button" parent="Aquarium_Tabs"]
+modulate = Color(0.576471, 0.913725, 0.831373, 1)
+layout_mode = 2
+text = "Shallows"
+
+[node name="Oceanic_Tab" type="Button" parent="Aquarium_Tabs"]
+modulate = Color(0.313726, 0.529412, 0.729412, 1)
+layout_mode = 2
+text = "Oceanic"
+
+[node name="Abyssal_Tab" type="Button" parent="Aquarium_Tabs"]
+modulate = Color(0.937255, 0.913725, 0.447059, 1)
+layout_mode = 2
+text = "Abyssal"
+
+[node name="Volcanic_Tab" type="Button" parent="Aquarium_Tabs"]
+modulate = Color(0.913725, 0.607843, 0.176471, 1)
+layout_mode = 2
+text = "Volcanic"
+
+[node name="Glacial_Tab" type="Button" parent="Aquarium_Tabs"]
+modulate = Color(0.576471, 0.870588, 0.913725, 1)
+layout_mode = 2
+text = "Glacial"
+
+[node name="Aquarium_Inventory" type="ScrollContainer" parent="."]
+layout_mode = 0
+offset_left = 641.0
+offset_top = 40.0
+offset_right = 1149.0
+offset_bottom = 261.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_ibnmv")
+horizontal_scroll_mode = 0
+vertical_scroll_mode = 2
+script = ExtResource("8_q0qlj")
+
+[node name="Container" type="VBoxContainer" parent="Aquarium_Inventory"]
+layout_mode = 2
+
+[node name="Coastal_Section" type="GridContainer" parent="Aquarium_Inventory/Container"]
+layout_mode = 2
+script = ExtResource("9_peqsg")
+
+[node name="Temp_Inv2" type="TextureButton" parent="Aquarium_Inventory/Container/Coastal_Section"]
+layout_mode = 2
+texture_normal = ExtResource("6_c6wla")
+
+[node name="Temp_Inv" type="TextureButton" parent="Aquarium_Inventory/Container/Coastal_Section"]
+layout_mode = 2
+texture_normal = ExtResource("6_c6wla")
+
+[node name="Shallows_Section" type="GridContainer" parent="Aquarium_Inventory/Container"]
+layout_mode = 2
+script = ExtResource("11_nd1ui")
+
+[node name="Temp_Inv2" type="TextureButton" parent="Aquarium_Inventory/Container/Shallows_Section"]
+layout_mode = 2
+texture_normal = ExtResource("10_i0pd0")
+
+[node name="Temp_Inv" type="TextureButton" parent="Aquarium_Inventory/Container/Shallows_Section"]
+layout_mode = 2
+texture_normal = ExtResource("10_i0pd0")
+
+[node name="Oceanic_Section" type="GridContainer" parent="Aquarium_Inventory/Container"]
+layout_mode = 2
+script = ExtResource("13_rqv6m")
+
+[node name="Abyssal_Section" type="GridContainer" parent="Aquarium_Inventory/Container"]
+layout_mode = 2
+script = ExtResource("14_3fuls")
+
+[node name="Volcanic_Section" type="GridContainer" parent="Aquarium_Inventory/Container"]
+layout_mode = 2
+script = ExtResource("15_4n4r8")
+
+[node name="Glacial_Section" type="GridContainer" parent="Aquarium_Inventory/Container"]
+layout_mode = 2
+script = ExtResource("16_qwi7o")
+
 [connection signal="pressed" from="Options/Attack_Button" to="Attacks" method="_on_attack_button_pressed"]
+[connection signal="hide_inventory" from="Options/Inventory_Button" to="Aquarium_Tabs" method="_on_inventory_button_hide_inventory"]
+[connection signal="hide_inventory" from="Options/Inventory_Button" to="Aquarium_Inventory" method="_on_inventory_button_hide_inventory"]
 [connection signal="pressed" from="Options/Inventory_Button" to="Options/Inventory_Button" method="_on_pressed"]
+[connection signal="show_inventory" from="Options/Inventory_Button" to="Attacks" method="_on_inventory_button_show_inventory"]
+[connection signal="show_inventory" from="Options/Inventory_Button" to="Aquarium_Tabs" method="_on_inventory_button_show_inventory"]
+[connection signal="show_inventory" from="Options/Inventory_Button" to="Aquarium_Inventory" method="_on_inventory_button_show_inventory"]
+[connection signal="Attack_Active" from="Attacks" to="Options/Inventory_Button" method="_on_attacks_attack_active"]
+[connection signal="pressed" from="Aquarium_Tabs/Coastal_Tab" to="Aquarium_Inventory/Container/Coastal_Section" method="_on_coastal_tab_pressed"]
+[connection signal="pressed" from="Aquarium_Tabs/Coastal_Tab" to="Aquarium_Inventory/Container/Shallows_Section" method="_on_coastal_tab_pressed"]
+[connection signal="pressed" from="Aquarium_Tabs/Coastal_Tab" to="Aquarium_Inventory/Container/Oceanic_Section" method="_on_coastal_tab_pressed"]
+[connection signal="pressed" from="Aquarium_Tabs/Coastal_Tab" to="Aquarium_Inventory/Container/Abyssal_Section" method="_on_coastal_tab_pressed"]
+[connection signal="pressed" from="Aquarium_Tabs/Coastal_Tab" to="Aquarium_Inventory/Container/Volcanic_Section" method="_on_coastal_tab_pressed"]
+[connection signal="pressed" from="Aquarium_Tabs/Coastal_Tab" to="Aquarium_Inventory/Container/Glacial_Section" method="_on_coastal_tab_pressed"]
+[connection signal="pressed" from="Aquarium_Tabs/Shallows_Tab" to="Aquarium_Inventory/Container/Coastal_Section" method="_on_shallows_tab_pressed"]
+[connection signal="pressed" from="Aquarium_Tabs/Shallows_Tab" to="Aquarium_Inventory/Container/Shallows_Section" method="_on_shallows_tab_pressed"]
+[connection signal="pressed" from="Aquarium_Tabs/Shallows_Tab" to="Aquarium_Inventory/Container/Oceanic_Section" method="_on_shallows_tab_pressed"]
+[connection signal="pressed" from="Aquarium_Tabs/Shallows_Tab" to="Aquarium_Inventory/Container/Abyssal_Section" method="_on_shallows_tab_pressed"]
+[connection signal="pressed" from="Aquarium_Tabs/Shallows_Tab" to="Aquarium_Inventory/Container/Volcanic_Section" method="_on_shallows_tab_pressed"]
+[connection signal="pressed" from="Aquarium_Tabs/Shallows_Tab" to="Aquarium_Inventory/Container/Glacial_Section" method="_on_shallows_tab_pressed"]
+[connection signal="pressed" from="Aquarium_Tabs/Oceanic_Tab" to="Aquarium_Inventory/Container/Coastal_Section" method="_on_oceanic_tab_pressed"]
+[connection signal="pressed" from="Aquarium_Tabs/Oceanic_Tab" to="Aquarium_Inventory/Container/Shallows_Section" method="_on_oceanic_tab_pressed"]
+[connection signal="pressed" from="Aquarium_Tabs/Oceanic_Tab" to="Aquarium_Inventory/Container/Oceanic_Section" method="_on_oceanic_tab_pressed"]
+[connection signal="pressed" from="Aquarium_Tabs/Oceanic_Tab" to="Aquarium_Inventory/Container/Abyssal_Section" method="_on_oceanic_tab_pressed"]
+[connection signal="pressed" from="Aquarium_Tabs/Oceanic_Tab" to="Aquarium_Inventory/Container/Volcanic_Section" method="_on_oceanic_tab_pressed"]
+[connection signal="pressed" from="Aquarium_Tabs/Oceanic_Tab" to="Aquarium_Inventory/Container/Glacial_Section" method="_on_oceanic_tab_pressed"]
+[connection signal="pressed" from="Aquarium_Tabs/Abyssal_Tab" to="Aquarium_Inventory/Container/Coastal_Section" method="_on_abyssal_tab_pressed"]
+[connection signal="pressed" from="Aquarium_Tabs/Abyssal_Tab" to="Aquarium_Inventory/Container/Shallows_Section" method="_on_abyssal_tab_pressed"]
+[connection signal="pressed" from="Aquarium_Tabs/Abyssal_Tab" to="Aquarium_Inventory/Container/Oceanic_Section" method="_on_abyssal_tab_pressed"]
+[connection signal="pressed" from="Aquarium_Tabs/Abyssal_Tab" to="Aquarium_Inventory/Container/Abyssal_Section" method="_on_abyssal_tab_pressed"]
+[connection signal="pressed" from="Aquarium_Tabs/Abyssal_Tab" to="Aquarium_Inventory/Container/Volcanic_Section" method="_on_abyssal_tab_pressed"]
+[connection signal="pressed" from="Aquarium_Tabs/Abyssal_Tab" to="Aquarium_Inventory/Container/Glacial_Section" method="_on_abyssal_tab_pressed"]
+[connection signal="pressed" from="Aquarium_Tabs/Volcanic_Tab" to="Aquarium_Inventory/Container/Coastal_Section" method="_on_volcanic_tab_pressed"]
+[connection signal="pressed" from="Aquarium_Tabs/Volcanic_Tab" to="Aquarium_Inventory/Container/Shallows_Section" method="_on_volcanic_tab_pressed"]
+[connection signal="pressed" from="Aquarium_Tabs/Volcanic_Tab" to="Aquarium_Inventory/Container/Oceanic_Section" method="_on_volcanic_tab_pressed"]
+[connection signal="pressed" from="Aquarium_Tabs/Volcanic_Tab" to="Aquarium_Inventory/Container/Abyssal_Section" method="_on_volcanic_tab_pressed"]
+[connection signal="pressed" from="Aquarium_Tabs/Volcanic_Tab" to="Aquarium_Inventory/Container/Volcanic_Section" method="_on_volcanic_tab_pressed"]
+[connection signal="pressed" from="Aquarium_Tabs/Volcanic_Tab" to="Aquarium_Inventory/Container/Glacial_Section" method="_on_volcanic_tab_pressed"]
+[connection signal="pressed" from="Aquarium_Tabs/Glacial_Tab" to="Aquarium_Inventory/Container/Coastal_Section" method="_on_glacial_tab_pressed"]
+[connection signal="pressed" from="Aquarium_Tabs/Glacial_Tab" to="Aquarium_Inventory/Container/Shallows_Section" method="_on_glacial_tab_pressed"]
+[connection signal="pressed" from="Aquarium_Tabs/Glacial_Tab" to="Aquarium_Inventory/Container/Oceanic_Section" method="_on_glacial_tab_pressed"]
+[connection signal="pressed" from="Aquarium_Tabs/Glacial_Tab" to="Aquarium_Inventory/Container/Abyssal_Section" method="_on_glacial_tab_pressed"]
+[connection signal="pressed" from="Aquarium_Tabs/Glacial_Tab" to="Aquarium_Inventory/Container/Volcanic_Section" method="_on_glacial_tab_pressed"]
+[connection signal="pressed" from="Aquarium_Tabs/Glacial_Tab" to="Aquarium_Inventory/Container/Glacial_Section" method="_on_glacial_tab_pressed"]

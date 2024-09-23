@@ -1,5 +1,7 @@
 extends ScrollContainer
 
+var is_hidden:bool = true
+signal Attack_Active
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -12,4 +14,15 @@ func _process(delta):
 
 
 func _on_attack_button_pressed():
-	show()
+	if is_hidden:
+		show()
+		Attack_Active.emit()
+		is_hidden = false
+	else:
+		hide()
+		is_hidden = true
+
+
+func _on_inventory_button_show_inventory():
+	hide()
+	is_hidden = true
