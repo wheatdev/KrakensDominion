@@ -12,23 +12,23 @@ func _process(delta):
 
 
 func _on_coastal_tab_pressed():
-	pass # Replace with function body.
+	hide()
 
 
 func _on_shallows_tab_pressed():
-	pass # Replace with function body.
+	hide()
 
 
 func _on_oceanic_tab_pressed():
-	pass # Replace with function body.
+	hide()
 
 
 func _on_abyssal_tab_pressed():
-	pass # Replace with function body.
+	hide()
 
 
 func _on_volcanic_tab_pressed():
-	pass # Replace with function body.
+	hide()
 
 
 func _on_glacial_tab_pressed():
