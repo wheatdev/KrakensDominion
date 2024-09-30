@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://eyvodouvst8v"]
+[gd_scene load_steps=5 format=3 uid="uid://eyvodouvst8v"]
 
 [ext_resource type="PackedScene" uid="uid://1nlg0bi7yola" path="res://solid.tscn" id="1_jy7ku"]
 [ext_resource type="PackedScene" uid="uid://b44upboqtebg6" path="res://player.Btscn.tscn" id="2_gghu6"]
 [ext_resource type="PackedScene" uid="uid://d2hiyjvlg48mv" path="res://enemybattle.tscn" id="3_rqr0e"]
+[ext_resource type="PackedScene" uid="uid://ciogt46jib2vv" path="res://combat_system.tscn" id="4_a5y88"]
 
 [node name="Node" type="Node"]
 
@@ -10,7 +11,7 @@
 transform = Transform3D(40, 0, 0, 0, 20, 0, 0, 0, 25, 0, -9.56285, 6.65243)
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.823067, 0.567944, 0, -0.567944, 0.823067, 0, 4.05474, 11.1135)
+transform = Transform3D(1, 0, 0, 0, 0.978592, 0.205811, 0, -0.205811, 0.978592, 2.34969, 2.27629, 12.8707)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -0.641945, 0.766751, 0, -0.766751, -0.641945, 0, 13.5496, -8.79927)
@@ -31,4 +32,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.35505, 10.2249, 2.52072)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.26325, 10.2249, 3.07003)
 
 [node name="CharacterBody3D3" parent="." instance=ExtResource("3_rqr0e")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.33282, 10.2249, 4.41792)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.58408, 10.2249, 4.41792)
+
+[node name="Combat_System" parent="." instance=ExtResource("4_a5y88")]

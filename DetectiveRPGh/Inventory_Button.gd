@@ -1,16 +1,31 @@
 extends Button
 
+var is_hidden:bool = true
+signal hide_inventory
 signal show_inventory
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	pass
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	pass
+	if GlobalVariables.fish_amount > 0:
+		show()
+	else:
+		hide()
 
 
 func _on_pressed():
-	show_inventory.emit()
+	if is_hidden:
+		show_inventory.emit()
+		is_hidden = false
+	else:
+		hide_inventory.emit()
+		is_hidden = true
+
+
+func _on_attacks_attack_active():
+	hide_inventory.emit()
+	is_hidden = true
