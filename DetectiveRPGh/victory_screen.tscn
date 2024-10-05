@@ -1,0 +1,42 @@
+[gd_scene load_steps=6 format=3 uid="uid://dxd7yiw48cdtw"]
+
+[ext_resource type="Script" path="res://victory_screen.gd" id="1_q0ihi"]
+[ext_resource type="Texture2D" uid="uid://do1157511s1ar" path="res://your did it.png" id="1_tnx6q"]
+[ext_resource type="FontFile" uid="uid://fs7hq8j3napg" path="res://Dominion Fonts/beyond_wonderland/Beyond Wonderland.ttf" id="2_f6pil"]
+[ext_resource type="StyleBox" uid="uid://cvir5373lvbyo" path="res://combat_aquarium_tab.tres" id="3_tcb7p"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_kggxf"]
+
+[node name="victory_screen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_q0ihi")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+modulate = Color(0.341176, 0.729412, 0.505882, 1)
+layout_mode = 0
+offset_right = 1157.0
+offset_bottom = 649.0
+texture = SubResource("CanvasTexture_kggxf")
+
+[node name="YourDidIt" type="Sprite2D" parent="."]
+position = Vector2(581, 329)
+scale = Vector2(2.476, 2.476)
+texture = ExtResource("1_tnx6q")
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 489.0
+offset_top = 424.0
+offset_right = 687.0
+offset_bottom = 493.0
+theme_override_fonts/font = ExtResource("2_f6pil")
+theme_override_font_sizes/font_size = 25
+theme_override_styles/normal = ExtResource("3_tcb7p")
+text = "Return to Start?"
+
+[connection signal="pressed" from="Button" to="." method="_on_return_button_pressed"]

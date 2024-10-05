@@ -52,7 +52,7 @@ func _on_loading_zone_swap(type):
 	if type == 1:
 		get_tree().change_scene_to_file("res://church.tscn")
 	if type == 2:
-		get_tree().change_scene_to_file("res://town.tscn")
+		get_tree().change_scene_to_file("res://town2.tscn")
 
 
 	

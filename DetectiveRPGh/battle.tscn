@@ -1,11 +1,13 @@
-[gd_scene load_steps=5 format=3 uid="uid://eyvodouvst8v"]
+[gd_scene load_steps=6 format=3 uid="uid://eyvodouvst8v"]
 
+[ext_resource type="Script" path="res://battle.gd" id="1_4xtc3"]
 [ext_resource type="PackedScene" uid="uid://1nlg0bi7yola" path="res://solid.tscn" id="1_jy7ku"]
 [ext_resource type="PackedScene" uid="uid://b44upboqtebg6" path="res://player.Btscn.tscn" id="2_gghu6"]
 [ext_resource type="PackedScene" uid="uid://d2hiyjvlg48mv" path="res://enemybattle.tscn" id="3_rqr0e"]
 [ext_resource type="PackedScene" uid="uid://ciogt46jib2vv" path="res://combat_system.tscn" id="4_a5y88"]
 
-[node name="Node" type="Node"]
+[node name="battle" type="Node"]
+script = ExtResource("1_4xtc3")
 
 [node name="StaticBody3D" parent="." instance=ExtResource("1_jy7ku")]
 transform = Transform3D(40, 0, 0, 0, 20, 0, 0, 0, 25, 0, -9.56285, 6.65243)
@@ -35,3 +37,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.26325, 10.2249, 3.07003)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.58408, 10.2249, 4.41792)
 
 [node name="Combat_System" parent="." instance=ExtResource("4_a5y88")]
+
+[connection signal="enemy_death" from="CharacterBody3D2" to="." method="on_enemy_death"]
+[connection signal="health_update" from="CharacterBody3D2" to="Combat_System/enemy_health" method="on_health_update"]
+[connection signal="pressed" from="Combat_System/Attacks/VBoxContainer/Basic_Attack" to="CharacterBody3D2" method="_on_basic_attack_pressed"]
+[connection signal="pressed" from="Combat_System/Attacks/VBoxContainer/Sword_Attack" to="CharacterBody3D2" method="_on_sword_attack_pressed"]
+
+[editable path="Combat_System"]

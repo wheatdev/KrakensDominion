@@ -1,0 +1,106 @@
+[gd_scene load_steps=10 format=3 uid="uid://dh7mv88crlon2"]
+
+[ext_resource type="PackedScene" uid="uid://1nlg0bi7yola" path="res://solid.tscn" id="1_ottfd"]
+[ext_resource type="PackedScene" uid="uid://k782roghdpuo" path="res://player.tscn" id="2_hsslx"]
+[ext_resource type="PackedScene" uid="uid://i7e708v2icx7" path="res://NPC.tscn" id="3_hni17"]
+[ext_resource type="Script" path="res://NPC.gd" id="4_vfwp3"]
+[ext_resource type="PackedScene" uid="uid://oxvm4ywu5g2a" path="res://enemy.tscn" id="5_dfmmr"]
+[ext_resource type="Script" path="res://enemy.gd" id="6_aa7ry"]
+[ext_resource type="PackedScene" uid="uid://bunodghviei7d" path="res://solidcircle.tscn" id="7_uqgdl"]
+[ext_resource type="PackedScene" uid="uid://c2787nxvxwr4s" path="res://loadingzone.tscn" id="8_aabe3"]
+[ext_resource type="PackedScene" uid="uid://b44bfg5ixkrir" path="res://fishing_spot.tscn" id="9_782it"]
+
+[node name="Node" type="Node"]
+
+[node name="Ground" parent="." instance=ExtResource("1_ottfd")]
+transform = Transform3D(5, 0, 0, 0, 1, 0, 0, 0, 5, -14.2699, -2.65182, -5.34674)
+
+[node name="Ground3" parent="." instance=ExtResource("1_ottfd")]
+transform = Transform3D(5, 0, 0, 0, 1, 0, 0, 0, 5, -23.6744, -1.0509, -5.27698)
+
+[node name="Ground4" parent="." instance=ExtResource("1_ottfd")]
+transform = Transform3D(50, 0, 0, 0, 1, 0, 0, 0, 5, -12.1791, -1.0509, -10.1245)
+
+[node name="Ground5" parent="." instance=ExtResource("1_ottfd")]
+transform = Transform3D(40, 0, 0, 0, 1, 0, 0, 0, 30, 21.1775, -1.0509, -17.5512)
+
+[node name="Ground6" parent="." instance=ExtResource("1_ottfd")]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 8.61845, 4.41444, -17.5512)
+
+[node name="Ground15" parent="." instance=ExtResource("1_ottfd")]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, -3.31202, 4.41444, -17.5512)
+
+[node name="Ground11" parent="." instance=ExtResource("1_ottfd")]
+transform = Transform3D(20, 0, 0, 0, 10, 0, 0, 0, 10, 31.6264, 4.41444, -37.2413)
+
+[node name="Ground12" parent="." instance=ExtResource("1_ottfd")]
+transform = Transform3D(5, 0, 0, 0, 3, 0, 0, 0, 3, -29.619, -1.83459, -13.7648)
+
+[node name="Ground13" parent="." instance=ExtResource("1_ottfd")]
+transform = Transform3D(5, 0, 0, 0, 3, 0, 0, 0, 3, -21.6785, -1.83459, -13.7648)
+
+[node name="Ground14" parent="." instance=ExtResource("1_ottfd")]
+transform = Transform3D(5, 0, 0, 0, 3, 0, 0, 0, 3, -12.6893, -1.83459, -13.7648)
+
+[node name="Ground8" parent="." instance=ExtResource("1_ottfd")]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 27.0895, 4.41444, -1.82278)
+
+[node name="Ground9" parent="." instance=ExtResource("1_ottfd")]
+transform = Transform3D(7.65584, 0, 6.43336, 0, 10, 0, -6.43336, 0, 7.65584, 38.8315, 4.41444, -5.4054)
+
+[node name="Ground10" parent="." instance=ExtResource("1_ottfd")]
+transform = Transform3D(7.65584, 0, 6.43336, 0, 10, 0, -6.43336, 0, 7.65584, 14.3754, 4.41444, -32.807)
+
+[node name="Ground7" parent="." instance=ExtResource("1_ottfd")]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 43.3786, 4.41444, -17.5512)
+
+[node name="Ground2" parent="." instance=ExtResource("1_ottfd")]
+transform = Transform3D(4.70114, 0.340544, 0, -1.70272, 0.940229, 0, 0, 0, 5, -18.9931, -1.84779, -5.30046)
+
+[node name="Player" parent="." instance=ExtResource("2_hsslx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 31.2834, 1.56843, -27.9925)
+
+[node name="NPC3" parent="." instance=ExtResource("3_hni17")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -29.7736, -0.00320822, -13.4583)
+script = ExtResource("4_vfwp3")
+msg1 = "FISH! FISH!"
+msg2 = "Get your fresh fish here!"
+msg3 = "You! Sir! Have you ever eatten a fish before?"
+
+[node name="NPC" parent="." instance=ExtResource("3_hni17")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.1081, -0.00320822, -13.4583)
+script = ExtResource("4_vfwp3")
+
+[node name="NPC2" parent="." instance=ExtResource("3_hni17")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.6806, -0.00320822, -13.4583)
+script = ExtResource("4_vfwp3")
+
+[node name="Enemy" parent="." instance=ExtResource("5_dfmmr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.86102, 3.23664, 0)
+script = ExtResource("6_aa7ry")
+
+[node name="StaticBody3D" parent="." instance=ExtResource("7_uqgdl")]
+transform = Transform3D(10, 0, 0, 0, 1, 0, 0, 0, 10, 27.2046, 0, -17.8819)
+
+[node name="LoadingZone" parent="." instance=ExtResource("8_aabe3")]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 1, 29.9789, 2.36789, -30.731)
+type = 1
+
+[node name="FishingSpot" parent="." instance=ExtResource("9_782it")]
+transform = Transform3D(5, 0, 0, 0, 1, 0, 0, 0, 5, -35.0669, 0.840957, -9.60977)
+
+[connection signal="body_entered" from="NPC3" to="NPC3" method="_on_body_entered"]
+[connection signal="body_exited" from="NPC3" to="Player" method="_on_area_3d_body_exited"]
+[connection signal="body_exited" from="NPC3" to="NPC3" method="_on_body_exited"]
+[connection signal="speaking" from="NPC3" to="Player" method="_on_area_3d_speaking"]
+[connection signal="body_entered" from="NPC" to="NPC" method="_on_body_entered"]
+[connection signal="body_exited" from="NPC" to="Player" method="_on_area_3d_body_exited"]
+[connection signal="body_exited" from="NPC" to="NPC" method="_on_body_exited"]
+[connection signal="speaking" from="NPC" to="Player" method="_on_area_3d_speaking"]
+[connection signal="body_entered" from="NPC2" to="NPC2" method="_on_body_entered"]
+[connection signal="body_exited" from="NPC2" to="Player" method="_on_area_3d_body_exited"]
+[connection signal="body_exited" from="NPC2" to="NPC2" method="_on_body_exited"]
+[connection signal="speaking" from="NPC2" to="Player" method="_on_area_3d_speaking"]
+[connection signal="body_entered" from="Enemy" to="Player" method="_on_area_3d_2_body_entered"]
+[connection signal="Swap" from="LoadingZone" to="Player" method="_on_loading_zone_swap"]
+[connection signal="body_entered" from="LoadingZone" to="LoadingZone" method="_on_body_entered"]
