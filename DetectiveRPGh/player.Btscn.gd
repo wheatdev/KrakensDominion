@@ -3,6 +3,9 @@ extends CharacterBody3D
 var fall_acceleration = 50
 var target_velocity = Vector3.ZERO
 var health = 10
+var is_dead = false
+@export var character_num:int
+var current_selection = 0
 
 signal health_update(health)
 signal enemy_death()
@@ -20,15 +23,23 @@ func _physics_process(delta):
 	move_and_slide()
 
 func _process(delta):
-	if health <= 0:
+	if health <= 0 and not is_dead:
 		enemy_death.emit()
+		is_dead = true
 		hide()
+	
 
 func _on_basic_attack_pressed():
-	health -= 1
-	health_update.emit(health)
+	if not is_dead and character_num == current_selection:
+		health -= 1
+		health_update.emit(health)
 
 
 func _on_sword_attack_pressed():
-	health -= 2
-	health_update.emit(health)
+	if not is_dead and character_num == current_selection:
+		health -= 2
+		health_update.emit(health)
+
+
+func on_current_enemy(current_enemy_selection):
+	current_selection = current_enemy_selection
