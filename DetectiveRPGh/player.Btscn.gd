@@ -30,16 +30,28 @@ func _process(delta):
 	
 
 func _on_basic_attack_pressed():
-	if not is_dead and character_num == current_selection:
+	if not is_dead and character_num == current_selection and not character_num == 0:
 		health -= 1
 		health_update.emit(health)
 
 
 func _on_sword_attack_pressed():
-	if not is_dead and character_num == current_selection:
+	if not is_dead and character_num == current_selection and not character_num == 0:
 		health -= 2
 		health_update.emit(health)
 
 
 func on_current_enemy(current_enemy_selection):
 	current_selection = current_enemy_selection
+
+
+func _on_maritimum_remedium():
+	if not is_dead and character_num == 0:
+		health += 2
+		health_update.emit(health)
+
+
+func _on_mare_sonus():
+	if not is_dead and character_num == current_selection and not character_num == 0:
+		health -= 5
+		health_update.emit(health)

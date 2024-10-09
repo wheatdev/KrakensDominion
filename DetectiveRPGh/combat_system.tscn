@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=3 uid="uid://ciogt46jib2vv"]
+[gd_scene load_steps=47 format=3 uid="uid://ciogt46jib2vv"]
 
 [ext_resource type="Script" path="res://Combat_System.gd" id="1_buiva"]
 [ext_resource type="FontFile" uid="uid://fs7hq8j3napg" path="res://Dominion Fonts/beyond_wonderland/Beyond Wonderland.ttf" id="2_0wna8"]
@@ -14,15 +14,20 @@
 [ext_resource type="Texture2D" uid="uid://c1yifk04336fy" path="res://swordfish.png" id="11_ldeae"]
 [ext_resource type="Script" path="res://Shallows_Section.gd" id="11_nd1ui"]
 [ext_resource type="FontFile" uid="uid://8h4od14ws677" path="res://Dominion Fonts/love_craft/Love Craft.otf" id="13_b2r6r"]
+[ext_resource type="Script" path="res://bluefin_bass.gd" id="13_gkvof"]
 [ext_resource type="Script" path="res://Oceanic_Section.gd" id="13_rqv6m"]
 [ext_resource type="Texture2D" uid="uid://cjffs2hf0x7fo" path="res://jellyfish.png" id="13_rw0jm"]
 [ext_resource type="Script" path="res://Abyssal_Section.gd" id="14_3fuls"]
 [ext_resource type="Script" path="res://Volcanic_Section.gd" id="15_4n4r8"]
+[ext_resource type="Script" path="res://num_fish.gd" id="15_wiekh"]
 [ext_resource type="Script" path="res://Glacial_Section.gd" id="16_qwi7o"]
 [ext_resource type="Texture2D" uid="uid://c8caeg5m0yd3g" path="res://pufferfish.png" id="16_uguwm"]
+[ext_resource type="Script" path="res://sun_fish.gd" id="16_xlx2h"]
 [ext_resource type="FontFile" uid="uid://qa7oqbepplvy" path="res://Dominion Fonts/griffiths/Griffiths.otf" id="17_i0md4"]
+[ext_resource type="Script" path="res://blowfish.gd" id="18_uwdy8"]
 [ext_resource type="Script" path="res://Select_Popup.gd" id="18_ydqjl"]
 [ext_resource type="Texture2D" uid="uid://cdsffdis6lprw" path="res://goldfish.png" id="19_klkr6"]
+[ext_resource type="Script" path="res://mackerel.gd" id="20_j3qla"]
 [ext_resource type="FontFile" uid="uid://eesvfrcw2cse" path="res://Dominion Fonts/love_craft/Love Craft Italic.otf" id="24_30ym3"]
 [ext_resource type="Script" path="res://player_health.gd" id="25_iaypg"]
 [ext_resource type="Script" path="res://enemy_health.gd" id="26_erior"]
@@ -319,8 +324,10 @@ script = ExtResource("9_peqsg")
 [node name="swordfish" type="TextureButton" parent="Aquarium_Inventory/Container/Coastal_Section"]
 layout_mode = 2
 texture_normal = ExtResource("11_ldeae")
+script = ExtResource("13_gkvof")
+identifier = 1
 
-[node name="num_fish" type="TextEdit" parent="Aquarium_Inventory/Container/Coastal_Section/swordfish"]
+[node name="num_fish" type="RichTextLabel" parent="Aquarium_Inventory/Container/Coastal_Section/swordfish"]
 layout_mode = 0
 offset_left = 80.0
 offset_top = 87.0
@@ -328,13 +335,15 @@ offset_right = 110.0
 offset_bottom = 117.0
 theme = SubResource("Theme_q0akc")
 text = "3"
-placeholder_text = "0"
+script = ExtResource("15_wiekh")
 
 [node name="jellyfish" type="TextureButton" parent="Aquarium_Inventory/Container/Coastal_Section"]
 layout_mode = 2
 texture_normal = ExtResource("13_rw0jm")
+script = ExtResource("16_xlx2h")
+identifier = 2
 
-[node name="num_fish" type="TextEdit" parent="Aquarium_Inventory/Container/Coastal_Section/jellyfish"]
+[node name="num_fish" type="RichTextLabel" parent="Aquarium_Inventory/Container/Coastal_Section/jellyfish"]
 layout_mode = 2
 offset_left = 92.0
 offset_top = 89.0
@@ -342,13 +351,15 @@ offset_right = 121.0
 offset_bottom = 120.0
 theme = SubResource("Theme_q0akc")
 text = "10"
-placeholder_text = "0"
+script = ExtResource("15_wiekh")
 
 [node name="pufferfish" type="TextureButton" parent="Aquarium_Inventory/Container/Coastal_Section"]
 layout_mode = 2
 texture_normal = ExtResource("16_uguwm")
+script = ExtResource("18_uwdy8")
+identifier = 3
 
-[node name="num_fish" type="TextEdit" parent="Aquarium_Inventory/Container/Coastal_Section/pufferfish"]
+[node name="num_fish" type="RichTextLabel" parent="Aquarium_Inventory/Container/Coastal_Section/pufferfish"]
 layout_mode = 0
 offset_left = 90.0
 offset_top = 89.0
@@ -356,13 +367,15 @@ offset_right = 120.0
 offset_bottom = 119.0
 theme = SubResource("Theme_q0akc")
 text = "7"
-placeholder_text = "0"
+script = ExtResource("15_wiekh")
 
 [node name="goldfish" type="TextureButton" parent="Aquarium_Inventory/Container/Coastal_Section"]
 layout_mode = 2
 texture_normal = ExtResource("19_klkr6")
+script = ExtResource("20_j3qla")
+identifier = 4
 
-[node name="num_fish" type="TextEdit" parent="Aquarium_Inventory/Container/Coastal_Section/goldfish"]
+[node name="num_fish" type="RichTextLabel" parent="Aquarium_Inventory/Container/Coastal_Section/goldfish"]
 layout_mode = 0
 offset_left = 89.0
 offset_top = 90.0
@@ -370,7 +383,7 @@ offset_right = 119.0
 offset_bottom = 120.0
 theme = SubResource("Theme_q0akc")
 text = "32"
-placeholder_text = "0"
+script = ExtResource("15_wiekh")
 
 [node name="Shallows_Section" type="GridContainer" parent="Aquarium_Inventory/Container"]
 layout_mode = 2
@@ -513,7 +526,10 @@ script = ExtResource("26_erior")
 [connection signal="show_inventory" from="Options/Inventory_Button" to="Attacks" method="_on_inventory_button_show_inventory"]
 [connection signal="show_inventory" from="Options/Inventory_Button" to="Aquarium_Tabs" method="_on_inventory_button_show_inventory"]
 [connection signal="show_inventory" from="Options/Inventory_Button" to="Aquarium_Inventory" method="_on_inventory_button_show_inventory"]
+[connection signal="pressed" from="Options/Defend_Button" to="." method="_on_turn_ending_button_pressed"]
 [connection signal="Attack_Active" from="Attacks" to="Options/Inventory_Button" method="_on_attacks_attack_active"]
+[connection signal="pressed" from="Attacks/VBoxContainer/Basic_Attack" to="." method="_on_turn_ending_button_pressed"]
+[connection signal="pressed" from="Attacks/VBoxContainer/Sword_Attack" to="." method="_on_turn_ending_button_pressed"]
 [connection signal="pressed" from="Aquarium_Tabs/Coastal_Tab" to="Aquarium_Inventory/Container/Coastal_Section" method="_on_coastal_tab_pressed"]
 [connection signal="pressed" from="Aquarium_Tabs/Coastal_Tab" to="Aquarium_Inventory/Container/Shallows_Section" method="_on_coastal_tab_pressed"]
 [connection signal="pressed" from="Aquarium_Tabs/Coastal_Tab" to="Aquarium_Inventory/Container/Oceanic_Section" method="_on_coastal_tab_pressed"]
@@ -550,7 +566,26 @@ script = ExtResource("26_erior")
 [connection signal="pressed" from="Aquarium_Tabs/Glacial_Tab" to="Aquarium_Inventory/Container/Abyssal_Section" method="_on_glacial_tab_pressed"]
 [connection signal="pressed" from="Aquarium_Tabs/Glacial_Tab" to="Aquarium_Inventory/Container/Volcanic_Section" method="_on_glacial_tab_pressed"]
 [connection signal="pressed" from="Aquarium_Tabs/Glacial_Tab" to="Aquarium_Inventory/Container/Glacial_Section" method="_on_glacial_tab_pressed"]
+[connection signal="fish_amount" from="Aquarium_Inventory/Container/Coastal_Section/swordfish" to="Aquarium_Inventory/Container/Coastal_Section/swordfish/num_fish" method="_on_fish_amount"]
+[connection signal="pressed" from="Aquarium_Inventory/Container/Coastal_Section/swordfish" to="Aquarium_Inventory/Container/Coastal_Section/swordfish" method="_on_pressed"]
 [connection signal="pressed" from="Aquarium_Inventory/Container/Coastal_Section/swordfish" to="Select_Popup" method="on_item_selected"]
+[connection signal="no_fish" from="Aquarium_Inventory/Container/Coastal_Section/swordfish/num_fish" to="Aquarium_Inventory/Container/Coastal_Section/swordfish" method="_on_no_fish"]
+[connection signal="fish_amount" from="Aquarium_Inventory/Container/Coastal_Section/jellyfish" to="Aquarium_Inventory/Container/Coastal_Section/jellyfish/num_fish" method="_on_fish_amount"]
+[connection signal="pressed" from="Aquarium_Inventory/Container/Coastal_Section/jellyfish" to="Aquarium_Inventory/Container/Coastal_Section/jellyfish" method="_on_pressed"]
 [connection signal="pressed" from="Aquarium_Inventory/Container/Coastal_Section/jellyfish" to="Select_Popup" method="on_item_selected"]
+[connection signal="no_fish" from="Aquarium_Inventory/Container/Coastal_Section/jellyfish/num_fish" to="Aquarium_Inventory/Container/Coastal_Section/jellyfish" method="_on_no_fish"]
+[connection signal="fish_amount" from="Aquarium_Inventory/Container/Coastal_Section/pufferfish" to="Aquarium_Inventory/Container/Coastal_Section/pufferfish/num_fish" method="_on_fish_amount"]
+[connection signal="pressed" from="Aquarium_Inventory/Container/Coastal_Section/pufferfish" to="Aquarium_Inventory/Container/Coastal_Section/pufferfish" method="_on_pressed"]
 [connection signal="pressed" from="Aquarium_Inventory/Container/Coastal_Section/pufferfish" to="Select_Popup" method="on_item_selected"]
+[connection signal="no_fish" from="Aquarium_Inventory/Container/Coastal_Section/pufferfish/num_fish" to="Aquarium_Inventory/Container/Coastal_Section/pufferfish" method="_on_no_fish"]
+[connection signal="fish_amount" from="Aquarium_Inventory/Container/Coastal_Section/goldfish" to="Aquarium_Inventory/Container/Coastal_Section/goldfish/num_fish" method="_on_fish_amount"]
+[connection signal="pressed" from="Aquarium_Inventory/Container/Coastal_Section/goldfish" to="Aquarium_Inventory/Container/Coastal_Section/goldfish" method="_on_pressed"]
 [connection signal="pressed" from="Aquarium_Inventory/Container/Coastal_Section/goldfish" to="Select_Popup" method="on_item_selected"]
+[connection signal="no_fish" from="Aquarium_Inventory/Container/Coastal_Section/goldfish/num_fish" to="Aquarium_Inventory/Container/Coastal_Section/goldfish" method="_on_no_fish"]
+[connection signal="sacrifice" from="Select_Popup" to="Aquarium_Inventory/Container/Coastal_Section/swordfish" method="_on_sacrifice"]
+[connection signal="sacrifice" from="Select_Popup" to="Aquarium_Inventory/Container/Coastal_Section/jellyfish" method="_on_sacrifice"]
+[connection signal="sacrifice" from="Select_Popup" to="Aquarium_Inventory/Container/Coastal_Section/pufferfish" method="_on_sacrifice"]
+[connection signal="sacrifice" from="Select_Popup" to="Aquarium_Inventory/Container/Coastal_Section/goldfish" method="_on_sacrifice"]
+[connection signal="pressed" from="Select_Popup/About_Button" to="Select_Popup" method="_on_about_button_pressed"]
+[connection signal="pressed" from="Select_Popup/Sacrifice_Button" to="." method="_on_turn_ending_button_pressed"]
+[connection signal="pressed" from="Select_Popup/Sacrifice_Button" to="Select_Popup" method="_on_sacrifice_button_pressed"]
