@@ -1,0 +1,108 @@
+[gd_scene load_steps=6 format=3 uid="uid://d2kolxkofon8p"]
+
+[ext_resource type="FontFile" uid="uid://cx4mhywcgo6pf" path="res://Dominion Fonts/mermaid/Mermaid1001.ttf" id="1_dpewx"]
+[ext_resource type="FontFile" uid="uid://8h4od14ws677" path="res://Dominion Fonts/love_craft/Love Craft.otf" id="2_dg8qr"]
+[ext_resource type="StyleBox" uid="uid://d4el8tepawdur" path="res://aquarium_background_style.tres" id="2_vsr8c"]
+
+[sub_resource type="Theme" id="Theme_w58fw"]
+default_font = ExtResource("1_dpewx")
+default_font_size = 23
+
+[sub_resource type="Theme" id="Theme_bganf"]
+default_font = ExtResource("2_dg8qr")
+
+[node name="pocket_aquarium" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Inventory_Menu" type="ScrollContainer" parent="."]
+layout_mode = 0
+offset_left = 850.0
+offset_top = 41.0
+offset_right = 1102.0
+offset_bottom = 385.0
+theme = SubResource("Theme_w58fw")
+theme_override_styles/panel = ExtResource("2_vsr8c")
+vertical_scroll_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Inventory_Menu"]
+modulate = Color(0.772549, 0.792157, 0.803922, 1)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Coastal_Menu" type="VBoxContainer" parent="Inventory_Menu/VBoxContainer"]
+layout_mode = 2
+
+[node name="temp_fish" type="Button" parent="Inventory_Menu/VBoxContainer/Coastal_Menu"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.176471, 0.619608, 0.913725, 1)
+text = "Fish1                                   1"
+
+[node name="temp_fish2" type="Button" parent="Inventory_Menu/VBoxContainer/Coastal_Menu"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.176471, 0.619608, 0.913725, 1)
+text = "Fish2                                   9"
+
+[node name="Shallows_Menu" type="VBoxContainer" parent="Inventory_Menu/VBoxContainer"]
+visible = false
+layout_mode = 2
+
+[node name="Oceanic_Menu" type="VBoxContainer" parent="Inventory_Menu/VBoxContainer"]
+visible = false
+layout_mode = 2
+
+[node name="Abyssal_Menu" type="VBoxContainer" parent="Inventory_Menu/VBoxContainer"]
+visible = false
+layout_mode = 2
+
+[node name="Volcanic_Menu" type="VBoxContainer" parent="Inventory_Menu/VBoxContainer"]
+visible = false
+layout_mode = 2
+
+[node name="Glacial_menu" type="VBoxContainer" parent="Inventory_Menu/VBoxContainer"]
+visible = false
+layout_mode = 2
+
+[node name="Tab_Menu" type="HBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 849.0
+offset_top = 1.0
+offset_right = 1103.0
+offset_bottom = 41.0
+theme = SubResource("Theme_bganf")
+
+[node name="Coastal" type="Button" parent="Tab_Menu"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.176471, 0.619608, 0.913725, 1)
+theme_override_fonts/font = ExtResource("2_dg8qr")
+text = " C "
+
+[node name="Shallows" type="Button" parent="Tab_Menu"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.576471, 0.913725, 0.831373, 1)
+text = " S "
+
+[node name="Oceanic" type="Button" parent="Tab_Menu"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.313726, 0.529412, 0.729412, 1)
+text = " O "
+
+[node name="Abyssal" type="Button" parent="Tab_Menu"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.937255, 0.913725, 0.447059, 1)
+text = " A "
+
+[node name="Volcanic" type="Button" parent="Tab_Menu"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.913725, 0.607843, 0.176471, 1)
+text = " V "
+
+[node name="Glacial" type="Button" parent="Tab_Menu"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.576471, 0.870588, 0.913725, 1)
+text = " G "

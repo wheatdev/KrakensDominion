@@ -19,11 +19,19 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.1081, -0.00320822, -13.45
 script = ExtResource("4_dtjrv")
 
 [node name="Enemy" parent="." instance=ExtResource("5_48kfx")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.86102, 10.7722, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.6623, 1.59333, -48.3706)
 script = ExtResource("6_c8l4i")
 
 [node name="LoadingZone" parent="." instance=ExtResource("7_756pd")]
 transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 1, -13.5551, 0.992652, 2.0619)
+type = 2
+
+[node name="LoadingZone2" parent="." instance=ExtResource("7_756pd")]
+transform = Transform3D(1, 0, 0, 0, 5, 0, 0, 0, 8, -32.455, 3.62521, -63.3097)
+type = 2
+
+[node name="LoadingZone3" parent="." instance=ExtResource("7_756pd")]
+transform = Transform3D(1, 0, 0, 0, 5, 0, 0, 0, 8, 5.34654, 3.62521, -63.3097)
 type = 2
 
 [node name="Ground" parent="." instance=ExtResource("1_am2r2")]
@@ -62,6 +70,15 @@ transform = Transform3D(5, 0, 0, 0, 3.14386, 0.987568, 0, -19.7514, 0.157193, -1
 [node name="Ground17" parent="." instance=ExtResource("1_am2r2")]
 transform = Transform3D(15, 0, 0, 0, 3, 0, 0, 0, 10, -14.1488, -0.617819, -54.158)
 
+[node name="Ground20" parent="." instance=ExtResource("1_am2r2")]
+transform = Transform3D(40, 0, 0, 0, 3, 0, 0, 0, 10, -14.1488, -0.617819, -63.8362)
+
+[node name="Ground21" parent="." instance=ExtResource("1_am2r2")]
+transform = Transform3D(40, 0, 0, 0, 12, 0, 0, 0, 2, -14.1488, 1.49668, -68.5059)
+
+[node name="Ground22" parent="." instance=ExtResource("1_am2r2")]
+transform = Transform3D(7.07107, 0, 7.07107, 0, 10, 0, -7.07107, 0, 7.07107, -14.1488, 1.899, -67.7926)
+
 [node name="Ground15" parent="." instance=ExtResource("1_am2r2")]
 transform = Transform3D(3, 0, 0, 0, 2, 0, 0, 0, 1, -10.1057, -0.983598, -26.8239)
 
@@ -69,13 +86,13 @@ transform = Transform3D(3, 0, 0, 0, 2, 0, 0, 0, 1, -10.1057, -0.983598, -26.8239
 transform = Transform3D(3, 0, 0, 0, 2, 0, 0, 0, 1, -18.8069, -0.983598, -26.8239)
 
 [node name="Ground2" parent="." instance=ExtResource("1_am2r2")]
-transform = Transform3D(5, 0, 0, 0, 10, 0, 0, 0, 70, -23.8429, 1.8822, -24.138)
+transform = Transform3D(15, 0, 0, 0, 10, 0, 0, 0, 70, -29.0524, 1.8822, -24.138)
 
 [node name="Ground4" parent="." instance=ExtResource("1_am2r2")]
 transform = Transform3D(15, 0, 0, 0, 10, 0, 0, 0, 1, -14.1702, 1.8822, 3.8241)
 
 [node name="Ground3" parent="." instance=ExtResource("1_am2r2")]
-transform = Transform3D(5, 0, 0, 0, 10, 0, 0, 0, 70, -4.77373, 1.8822, -24.1075)
+transform = Transform3D(15, 0, 0, 0, 10, 0, 0, 0, 70, 0.680391, 1.8822, -24.1075)
 
 [node name="StaticBody3D" parent="." instance=ExtResource("8_bcxwy")]
 transform = Transform3D(8, 0, 0, 0, 2, 0, 0, 0, 7, -14.2405, -1.09386, -47.5193)
@@ -87,3 +104,7 @@ transform = Transform3D(8, 0, 0, 0, 2, 0, 0, 0, 7, -14.2405, -1.09386, -47.5193)
 [connection signal="body_entered" from="Enemy" to="Player" method="_on_area_3d_2_body_entered"]
 [connection signal="Swap" from="LoadingZone" to="Player" method="_on_loading_zone_swap"]
 [connection signal="body_entered" from="LoadingZone" to="LoadingZone" method="_on_body_entered"]
+[connection signal="Swap" from="LoadingZone2" to="Player" method="_on_loading_zone_swap"]
+[connection signal="body_entered" from="LoadingZone2" to="LoadingZone2" method="_on_body_entered"]
+[connection signal="Swap" from="LoadingZone3" to="Player" method="_on_loading_zone_swap"]
+[connection signal="body_entered" from="LoadingZone3" to="LoadingZone3" method="_on_body_entered"]

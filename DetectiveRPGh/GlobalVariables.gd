@@ -14,3 +14,5 @@ var fish4 = 0
 var fish5 = 0 
 
 var fish_amount = fish1 + fish2 + fish3 + fish4 + fish5
+
+var current_selected_fish:int = 0

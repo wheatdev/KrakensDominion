@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://ciogt46jib2vv"]
+[gd_scene load_steps=47 format=3 uid="uid://ciogt46jib2vv"]
 
 [ext_resource type="Script" path="res://Combat_System.gd" id="1_buiva"]
 [ext_resource type="FontFile" uid="uid://fs7hq8j3napg" path="res://Dominion Fonts/beyond_wonderland/Beyond Wonderland.ttf" id="2_0wna8"]
@@ -6,19 +6,31 @@
 [ext_resource type="Script" path="res://Inventory_Button.gd" id="4_17ocx"]
 [ext_resource type="Script" path="res://Attacks_Menu.gd" id="4_vfbn5"]
 [ext_resource type="Texture2D" uid="uid://82hastxa3am0" path="res://stone-texture-background.jpg" id="5_x6hlj"]
-[ext_resource type="Texture2D" uid="uid://dhvqhwnb38i32" path="res://legallyDistinct.png" id="6_c6wla"]
-[ext_resource type="Texture2D" uid="uid://basmihrm267yj" path="res://Clear sea water.jpg" id="6_h60mc"]
 [ext_resource type="Script" path="res://Aquarium_Tabs.gd" id="6_wr8ej"]
+[ext_resource type="StyleBox" uid="uid://d4el8tepawdur" path="res://aquarium_background_style.tres" id="8_1ihcd"]
+[ext_resource type="StyleBox" uid="uid://cvir5373lvbyo" path="res://combat_aquarium_tab.tres" id="8_7g6ep"]
 [ext_resource type="Script" path="res://Aquarium_Inventory.gd" id="8_q0qlj"]
 [ext_resource type="Script" path="res://Coastal_Section.gd" id="9_peqsg"]
-[ext_resource type="Texture2D" uid="uid://b7uxrb3shek2" path="res://icon.svg" id="10_i0pd0"]
+[ext_resource type="Texture2D" uid="uid://c1yifk04336fy" path="res://swordfish.png" id="11_ldeae"]
 [ext_resource type="Script" path="res://Shallows_Section.gd" id="11_nd1ui"]
+[ext_resource type="FontFile" uid="uid://8h4od14ws677" path="res://Dominion Fonts/love_craft/Love Craft.otf" id="13_b2r6r"]
+[ext_resource type="Script" path="res://bluefin_bass.gd" id="13_gkvof"]
 [ext_resource type="Script" path="res://Oceanic_Section.gd" id="13_rqv6m"]
+[ext_resource type="Texture2D" uid="uid://cjffs2hf0x7fo" path="res://jellyfish.png" id="13_rw0jm"]
 [ext_resource type="Script" path="res://Abyssal_Section.gd" id="14_3fuls"]
 [ext_resource type="Script" path="res://Volcanic_Section.gd" id="15_4n4r8"]
+[ext_resource type="Script" path="res://num_fish.gd" id="15_wiekh"]
 [ext_resource type="Script" path="res://Glacial_Section.gd" id="16_qwi7o"]
+[ext_resource type="Texture2D" uid="uid://c8caeg5m0yd3g" path="res://pufferfish.png" id="16_uguwm"]
+[ext_resource type="Script" path="res://sun_fish.gd" id="16_xlx2h"]
 [ext_resource type="FontFile" uid="uid://qa7oqbepplvy" path="res://Dominion Fonts/griffiths/Griffiths.otf" id="17_i0md4"]
+[ext_resource type="Script" path="res://blowfish.gd" id="18_uwdy8"]
 [ext_resource type="Script" path="res://Select_Popup.gd" id="18_ydqjl"]
+[ext_resource type="Texture2D" uid="uid://cdsffdis6lprw" path="res://goldfish.png" id="19_klkr6"]
+[ext_resource type="Script" path="res://mackerel.gd" id="20_j3qla"]
+[ext_resource type="FontFile" uid="uid://eesvfrcw2cse" path="res://Dominion Fonts/love_craft/Love Craft Italic.otf" id="24_30ym3"]
+[ext_resource type="Script" path="res://player_health.gd" id="25_iaypg"]
+[ext_resource type="Script" path="res://enemy_health.gd" id="26_erior"]
 
 [sub_resource type="Theme" id="Theme_2vqcs"]
 default_font = ExtResource("2_0wna8")
@@ -37,11 +49,9 @@ modulate_color = Color(0.403922, 0.403922, 0.403922, 1)
 default_font = ExtResource("2_0wna8")
 default_font_size = 25
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ibnmv"]
-texture = ExtResource("6_h60mc")
-axis_stretch_horizontal = 2
-axis_stretch_vertical = 2
-modulate_color = Color(0.25098, 0.309804, 0.262745, 1)
+[sub_resource type="Theme" id="Theme_q0akc"]
+default_font = ExtResource("13_b2r6r")
+default_font_size = 12
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wa018"]
 content_margin_left = 4.0
@@ -169,6 +179,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 script = ExtResource("1_buiva")
 
 [node name="Options" type="BoxContainer" parent="."]
@@ -186,17 +197,26 @@ vertical = true
 [node name="Attack_Button" type="Button" parent="Options"]
 layout_mode = 2
 size_flags_vertical = 3
+theme_override_styles/normal = ExtResource("8_7g6ep")
+theme_override_styles/hover = ExtResource("8_7g6ep")
+theme_override_styles/pressed = ExtResource("8_7g6ep")
 text = "Attack"
 script = ExtResource("3_xy3ja")
 
 [node name="Inventory_Button" type="Button" parent="Options"]
 layout_mode = 2
 size_flags_vertical = 3
+theme_override_styles/normal = ExtResource("8_7g6ep")
+theme_override_styles/hover = ExtResource("8_7g6ep")
+theme_override_styles/pressed = ExtResource("8_7g6ep")
 text = "Aquarium"
 script = ExtResource("4_17ocx")
 
 [node name="Defend_Button" type="Button" parent="Options"]
 layout_mode = 2
+theme_override_styles/normal = ExtResource("8_7g6ep")
+theme_override_styles/hover = ExtResource("8_7g6ep")
+theme_override_styles/pressed = ExtResource("8_7g6ep")
 text = "Defend"
 
 [node name="Attacks" type="ScrollContainer" parent="."]
@@ -208,7 +228,6 @@ offset_bottom = 562.0
 theme = SubResource("Theme_mr231")
 theme_override_styles/panel = SubResource("StyleBoxTexture_c7ovi")
 horizontal_scroll_mode = 0
-vertical_scroll_mode = 2
 script = ExtResource("4_vfbn5")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Attacks"]
@@ -222,57 +241,74 @@ size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.0
 text = "Basic Attack"
 
-[node name="Button" type="Button" parent="Attacks/VBoxContainer"]
+[node name="Sword_Attack" type="Button" parent="Attacks/VBoxContainer"]
 modulate = Color(0.372549, 0.227451, 1, 1)
 layout_mode = 2
 text = "Sword Attack"
 
 [node name="Aquarium_Tabs" type="HBoxContainer" parent="."]
 layout_mode = 0
-offset_left = 638.0
-offset_top = 2.0
-offset_right = 1151.0
-offset_bottom = 42.0
+offset_left = 623.0
+offset_top = 3.0
+offset_right = 1136.0
+offset_bottom = 43.0
 theme = SubResource("Theme_gki45")
 script = ExtResource("6_wr8ej")
 
 [node name="Coastal_Tab" type="Button" parent="Aquarium_Tabs"]
 modulate = Color(0.176471, 0.619608, 0.913725, 1)
 layout_mode = 2
+theme_override_styles/normal = ExtResource("8_7g6ep")
+theme_override_styles/hover = ExtResource("8_7g6ep")
+theme_override_styles/pressed = ExtResource("8_7g6ep")
 text = "Coastal"
 
 [node name="Shallows_Tab" type="Button" parent="Aquarium_Tabs"]
 modulate = Color(0.576471, 0.913725, 0.831373, 1)
 layout_mode = 2
+theme_override_styles/normal = ExtResource("8_7g6ep")
+theme_override_styles/hover = ExtResource("8_7g6ep")
 text = "Shallows"
 
 [node name="Oceanic_Tab" type="Button" parent="Aquarium_Tabs"]
 modulate = Color(0.313726, 0.529412, 0.729412, 1)
 layout_mode = 2
+theme_override_styles/normal = ExtResource("8_7g6ep")
+theme_override_styles/hover = ExtResource("8_7g6ep")
+theme_override_styles/pressed = ExtResource("8_7g6ep")
 text = "Oceanic"
 
 [node name="Abyssal_Tab" type="Button" parent="Aquarium_Tabs"]
 modulate = Color(0.937255, 0.913725, 0.447059, 1)
 layout_mode = 2
+theme_override_styles/normal = ExtResource("8_7g6ep")
+theme_override_styles/hover = ExtResource("8_7g6ep")
+theme_override_styles/pressed = ExtResource("8_7g6ep")
 text = "Abyssal"
 
 [node name="Volcanic_Tab" type="Button" parent="Aquarium_Tabs"]
 modulate = Color(0.913725, 0.607843, 0.176471, 1)
 layout_mode = 2
+theme_override_styles/normal = ExtResource("8_7g6ep")
+theme_override_styles/hover = ExtResource("8_7g6ep")
+theme_override_styles/pressed = ExtResource("8_7g6ep")
 text = "Volcanic"
 
 [node name="Glacial_Tab" type="Button" parent="Aquarium_Tabs"]
 modulate = Color(0.576471, 0.870588, 0.913725, 1)
 layout_mode = 2
+theme_override_styles/normal = ExtResource("8_7g6ep")
+theme_override_styles/hover = ExtResource("8_7g6ep")
+theme_override_styles/pressed = ExtResource("8_7g6ep")
 text = "Glacial"
 
 [node name="Aquarium_Inventory" type="ScrollContainer" parent="."]
 layout_mode = 0
-offset_left = 641.0
-offset_top = 40.0
-offset_right = 1149.0
-offset_bottom = 261.0
-theme_override_styles/panel = SubResource("StyleBoxTexture_ibnmv")
+offset_left = 622.0
+offset_top = 44.0
+offset_right = 1150.0
+offset_bottom = 265.0
+theme_override_styles/panel = ExtResource("8_1ihcd")
 horizontal_scroll_mode = 0
 vertical_scroll_mode = 2
 script = ExtResource("8_q0qlj")
@@ -282,45 +318,100 @@ layout_mode = 2
 
 [node name="Coastal_Section" type="GridContainer" parent="Aquarium_Inventory/Container"]
 layout_mode = 2
+columns = 4
 script = ExtResource("9_peqsg")
 
-[node name="Temp_Inv2" type="TextureButton" parent="Aquarium_Inventory/Container/Coastal_Section"]
+[node name="swordfish" type="TextureButton" parent="Aquarium_Inventory/Container/Coastal_Section"]
 layout_mode = 2
-texture_normal = ExtResource("6_c6wla")
+texture_normal = ExtResource("11_ldeae")
+script = ExtResource("13_gkvof")
+identifier = 1
 
-[node name="Temp_Inv" type="TextureButton" parent="Aquarium_Inventory/Container/Coastal_Section"]
+[node name="num_fish" type="RichTextLabel" parent="Aquarium_Inventory/Container/Coastal_Section/swordfish"]
+layout_mode = 0
+offset_left = 80.0
+offset_top = 87.0
+offset_right = 110.0
+offset_bottom = 117.0
+theme = SubResource("Theme_q0akc")
+text = "3"
+script = ExtResource("15_wiekh")
+
+[node name="jellyfish" type="TextureButton" parent="Aquarium_Inventory/Container/Coastal_Section"]
 layout_mode = 2
-texture_normal = ExtResource("6_c6wla")
+texture_normal = ExtResource("13_rw0jm")
+script = ExtResource("16_xlx2h")
+identifier = 2
+
+[node name="num_fish" type="RichTextLabel" parent="Aquarium_Inventory/Container/Coastal_Section/jellyfish"]
+layout_mode = 2
+offset_left = 92.0
+offset_top = 89.0
+offset_right = 121.0
+offset_bottom = 120.0
+theme = SubResource("Theme_q0akc")
+text = "10"
+script = ExtResource("15_wiekh")
+
+[node name="pufferfish" type="TextureButton" parent="Aquarium_Inventory/Container/Coastal_Section"]
+layout_mode = 2
+texture_normal = ExtResource("16_uguwm")
+script = ExtResource("18_uwdy8")
+identifier = 3
+
+[node name="num_fish" type="RichTextLabel" parent="Aquarium_Inventory/Container/Coastal_Section/pufferfish"]
+layout_mode = 0
+offset_left = 90.0
+offset_top = 89.0
+offset_right = 120.0
+offset_bottom = 119.0
+theme = SubResource("Theme_q0akc")
+text = "7"
+script = ExtResource("15_wiekh")
+
+[node name="goldfish" type="TextureButton" parent="Aquarium_Inventory/Container/Coastal_Section"]
+layout_mode = 2
+texture_normal = ExtResource("19_klkr6")
+script = ExtResource("20_j3qla")
+identifier = 4
+
+[node name="num_fish" type="RichTextLabel" parent="Aquarium_Inventory/Container/Coastal_Section/goldfish"]
+layout_mode = 0
+offset_left = 89.0
+offset_top = 90.0
+offset_right = 119.0
+offset_bottom = 120.0
+theme = SubResource("Theme_q0akc")
+text = "32"
+script = ExtResource("15_wiekh")
 
 [node name="Shallows_Section" type="GridContainer" parent="Aquarium_Inventory/Container"]
 layout_mode = 2
+columns = 4
 script = ExtResource("11_nd1ui")
-
-[node name="Temp_Inv2" type="TextureButton" parent="Aquarium_Inventory/Container/Shallows_Section"]
-layout_mode = 2
-texture_normal = ExtResource("10_i0pd0")
-
-[node name="Temp_Inv" type="TextureButton" parent="Aquarium_Inventory/Container/Shallows_Section"]
-layout_mode = 2
-texture_normal = ExtResource("10_i0pd0")
 
 [node name="Oceanic_Section" type="GridContainer" parent="Aquarium_Inventory/Container"]
 layout_mode = 2
+columns = 4
 script = ExtResource("13_rqv6m")
 
 [node name="Abyssal_Section" type="GridContainer" parent="Aquarium_Inventory/Container"]
 layout_mode = 2
+columns = 4
 script = ExtResource("14_3fuls")
 
 [node name="Volcanic_Section" type="GridContainer" parent="Aquarium_Inventory/Container"]
 layout_mode = 2
+columns = 4
 script = ExtResource("15_4n4r8")
 
 [node name="Glacial_Section" type="GridContainer" parent="Aquarium_Inventory/Container"]
 layout_mode = 2
+columns = 4
 script = ExtResource("16_qwi7o")
 
 [node name="Select_Popup" type="VBoxContainer" parent="."]
+visible = false
 layout_mode = 0
 offset_left = 539.0
 offset_top = 265.0
@@ -356,6 +447,78 @@ modulate = Color(1, 0.196078, 0.145098, 1)
 layout_mode = 2
 text = "Remove"
 
+[node name="player_health" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 86.0
+offset_top = 369.0
+offset_right = 270.0
+offset_bottom = 402.0
+theme_override_fonts/normal_font = ExtResource("24_30ym3")
+theme_override_font_sizes/normal_font_size = 20
+theme_override_styles/normal = ExtResource("8_7g6ep")
+text = "10/10 Health"
+script = ExtResource("25_iaypg")
+
+[node name="enemy_health" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 479.0
+offset_top = 329.0
+offset_right = 577.0
+offset_bottom = 362.0
+theme_override_fonts/normal_font = ExtResource("24_30ym3")
+theme_override_font_sizes/normal_font_size = 20
+theme_override_styles/normal = ExtResource("8_7g6ep")
+text = "10/10"
+script = ExtResource("26_erior")
+
+[node name="enemy_health2" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 583.0
+offset_top = 237.0
+offset_right = 678.0
+offset_bottom = 270.0
+theme_override_fonts/normal_font = ExtResource("24_30ym3")
+theme_override_font_sizes/normal_font_size = 20
+theme_override_styles/normal = ExtResource("8_7g6ep")
+text = "10/10"
+script = ExtResource("26_erior")
+
+[node name="enemy_health3" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 650.0
+offset_top = 339.0
+offset_right = 745.0
+offset_bottom = 372.0
+theme_override_fonts/normal_font = ExtResource("24_30ym3")
+theme_override_font_sizes/normal_font_size = 20
+theme_override_styles/normal = ExtResource("8_7g6ep")
+text = "10/10"
+script = ExtResource("26_erior")
+
+[node name="enemy_health4" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 729.0
+offset_top = 237.0
+offset_right = 824.0
+offset_bottom = 270.0
+theme_override_fonts/normal_font = ExtResource("24_30ym3")
+theme_override_font_sizes/normal_font_size = 20
+theme_override_styles/normal = ExtResource("8_7g6ep")
+text = "10/10"
+script = ExtResource("26_erior")
+
+[node name="enemy_health5" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 816.0
+offset_top = 336.0
+offset_right = 911.0
+offset_bottom = 369.0
+theme_override_fonts/normal_font = ExtResource("24_30ym3")
+theme_override_font_sizes/normal_font_size = 20
+theme_override_styles/normal = ExtResource("8_7g6ep")
+text = "10/10"
+script = ExtResource("26_erior")
+
 [connection signal="pressed" from="Options/Attack_Button" to="Attacks" method="_on_attack_button_pressed"]
 [connection signal="hide_inventory" from="Options/Inventory_Button" to="Aquarium_Tabs" method="_on_inventory_button_hide_inventory"]
 [connection signal="hide_inventory" from="Options/Inventory_Button" to="Aquarium_Inventory" method="_on_inventory_button_hide_inventory"]
@@ -363,7 +526,10 @@ text = "Remove"
 [connection signal="show_inventory" from="Options/Inventory_Button" to="Attacks" method="_on_inventory_button_show_inventory"]
 [connection signal="show_inventory" from="Options/Inventory_Button" to="Aquarium_Tabs" method="_on_inventory_button_show_inventory"]
 [connection signal="show_inventory" from="Options/Inventory_Button" to="Aquarium_Inventory" method="_on_inventory_button_show_inventory"]
+[connection signal="pressed" from="Options/Defend_Button" to="." method="_on_turn_ending_button_pressed"]
 [connection signal="Attack_Active" from="Attacks" to="Options/Inventory_Button" method="_on_attacks_attack_active"]
+[connection signal="pressed" from="Attacks/VBoxContainer/Basic_Attack" to="." method="_on_turn_ending_button_pressed"]
+[connection signal="pressed" from="Attacks/VBoxContainer/Sword_Attack" to="." method="_on_turn_ending_button_pressed"]
 [connection signal="pressed" from="Aquarium_Tabs/Coastal_Tab" to="Aquarium_Inventory/Container/Coastal_Section" method="_on_coastal_tab_pressed"]
 [connection signal="pressed" from="Aquarium_Tabs/Coastal_Tab" to="Aquarium_Inventory/Container/Shallows_Section" method="_on_coastal_tab_pressed"]
 [connection signal="pressed" from="Aquarium_Tabs/Coastal_Tab" to="Aquarium_Inventory/Container/Oceanic_Section" method="_on_coastal_tab_pressed"]
@@ -400,4 +566,26 @@ text = "Remove"
 [connection signal="pressed" from="Aquarium_Tabs/Glacial_Tab" to="Aquarium_Inventory/Container/Abyssal_Section" method="_on_glacial_tab_pressed"]
 [connection signal="pressed" from="Aquarium_Tabs/Glacial_Tab" to="Aquarium_Inventory/Container/Volcanic_Section" method="_on_glacial_tab_pressed"]
 [connection signal="pressed" from="Aquarium_Tabs/Glacial_Tab" to="Aquarium_Inventory/Container/Glacial_Section" method="_on_glacial_tab_pressed"]
-[connection signal="pressed" from="Aquarium_Inventory/Container/Coastal_Section/Temp_Inv2" to="Select_Popup" method="on_item_selected"]
+[connection signal="fish_amount" from="Aquarium_Inventory/Container/Coastal_Section/swordfish" to="Aquarium_Inventory/Container/Coastal_Section/swordfish/num_fish" method="_on_fish_amount"]
+[connection signal="pressed" from="Aquarium_Inventory/Container/Coastal_Section/swordfish" to="Aquarium_Inventory/Container/Coastal_Section/swordfish" method="_on_pressed"]
+[connection signal="pressed" from="Aquarium_Inventory/Container/Coastal_Section/swordfish" to="Select_Popup" method="on_item_selected"]
+[connection signal="no_fish" from="Aquarium_Inventory/Container/Coastal_Section/swordfish/num_fish" to="Aquarium_Inventory/Container/Coastal_Section/swordfish" method="_on_no_fish"]
+[connection signal="fish_amount" from="Aquarium_Inventory/Container/Coastal_Section/jellyfish" to="Aquarium_Inventory/Container/Coastal_Section/jellyfish/num_fish" method="_on_fish_amount"]
+[connection signal="pressed" from="Aquarium_Inventory/Container/Coastal_Section/jellyfish" to="Aquarium_Inventory/Container/Coastal_Section/jellyfish" method="_on_pressed"]
+[connection signal="pressed" from="Aquarium_Inventory/Container/Coastal_Section/jellyfish" to="Select_Popup" method="on_item_selected"]
+[connection signal="no_fish" from="Aquarium_Inventory/Container/Coastal_Section/jellyfish/num_fish" to="Aquarium_Inventory/Container/Coastal_Section/jellyfish" method="_on_no_fish"]
+[connection signal="fish_amount" from="Aquarium_Inventory/Container/Coastal_Section/pufferfish" to="Aquarium_Inventory/Container/Coastal_Section/pufferfish/num_fish" method="_on_fish_amount"]
+[connection signal="pressed" from="Aquarium_Inventory/Container/Coastal_Section/pufferfish" to="Aquarium_Inventory/Container/Coastal_Section/pufferfish" method="_on_pressed"]
+[connection signal="pressed" from="Aquarium_Inventory/Container/Coastal_Section/pufferfish" to="Select_Popup" method="on_item_selected"]
+[connection signal="no_fish" from="Aquarium_Inventory/Container/Coastal_Section/pufferfish/num_fish" to="Aquarium_Inventory/Container/Coastal_Section/pufferfish" method="_on_no_fish"]
+[connection signal="fish_amount" from="Aquarium_Inventory/Container/Coastal_Section/goldfish" to="Aquarium_Inventory/Container/Coastal_Section/goldfish/num_fish" method="_on_fish_amount"]
+[connection signal="pressed" from="Aquarium_Inventory/Container/Coastal_Section/goldfish" to="Aquarium_Inventory/Container/Coastal_Section/goldfish" method="_on_pressed"]
+[connection signal="pressed" from="Aquarium_Inventory/Container/Coastal_Section/goldfish" to="Select_Popup" method="on_item_selected"]
+[connection signal="no_fish" from="Aquarium_Inventory/Container/Coastal_Section/goldfish/num_fish" to="Aquarium_Inventory/Container/Coastal_Section/goldfish" method="_on_no_fish"]
+[connection signal="sacrifice" from="Select_Popup" to="Aquarium_Inventory/Container/Coastal_Section/swordfish" method="_on_sacrifice"]
+[connection signal="sacrifice" from="Select_Popup" to="Aquarium_Inventory/Container/Coastal_Section/jellyfish" method="_on_sacrifice"]
+[connection signal="sacrifice" from="Select_Popup" to="Aquarium_Inventory/Container/Coastal_Section/pufferfish" method="_on_sacrifice"]
+[connection signal="sacrifice" from="Select_Popup" to="Aquarium_Inventory/Container/Coastal_Section/goldfish" method="_on_sacrifice"]
+[connection signal="pressed" from="Select_Popup/About_Button" to="Select_Popup" method="_on_about_button_pressed"]
+[connection signal="pressed" from="Select_Popup/Sacrifice_Button" to="." method="_on_turn_ending_button_pressed"]
+[connection signal="pressed" from="Select_Popup/Sacrifice_Button" to="Select_Popup" method="_on_sacrifice_button_pressed"]

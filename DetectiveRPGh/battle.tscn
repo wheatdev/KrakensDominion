@@ -1,11 +1,13 @@
-[gd_scene load_steps=5 format=3 uid="uid://eyvodouvst8v"]
+[gd_scene load_steps=6 format=3 uid="uid://eyvodouvst8v"]
 
+[ext_resource type="Script" path="res://battle.gd" id="1_4xtc3"]
 [ext_resource type="PackedScene" uid="uid://1nlg0bi7yola" path="res://solid.tscn" id="1_jy7ku"]
 [ext_resource type="PackedScene" uid="uid://b44upboqtebg6" path="res://player.Btscn.tscn" id="2_gghu6"]
 [ext_resource type="PackedScene" uid="uid://d2hiyjvlg48mv" path="res://enemybattle.tscn" id="3_rqr0e"]
 [ext_resource type="PackedScene" uid="uid://ciogt46jib2vv" path="res://combat_system.tscn" id="4_a5y88"]
 
-[node name="Node" type="Node"]
+[node name="battle" type="Node"]
+script = ExtResource("1_4xtc3")
 
 [node name="StaticBody3D" parent="." instance=ExtResource("1_jy7ku")]
 transform = Transform3D(40, 0, 0, 0, 20, 0, 0, 0, 25, 0, -9.56285, 6.65243)
@@ -16,22 +18,67 @@ transform = Transform3D(1, 0, 0, 0, 0.978592, 0.205811, 0, -0.205811, 0.978592, 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -0.641945, 0.766751, 0, -0.766751, -0.641945, 0, 13.5496, -8.79927)
 
-[node name="CharacterBody3D" parent="." instance=ExtResource("2_gghu6")]
+[node name="player" parent="." instance=ExtResource("2_gghu6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.98143, 10.3432, 5.94105)
 
-[node name="CharacterBody3D2" parent="." instance=ExtResource("3_rqr0e")]
+[node name="enemy1" parent="." instance=ExtResource("3_rqr0e")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.83978, 10.2249, 4.41792)
+character_num = 1
 
-[node name="CharacterBody3D6" parent="." instance=ExtResource("3_rqr0e")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.81692, 10.2249, 4.41792)
-
-[node name="CharacterBody3D4" parent="." instance=ExtResource("3_rqr0e")]
+[node name="enemy2" parent="." instance=ExtResource("3_rqr0e")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.35505, 10.2249, 2.52072)
+character_num = 2
 
-[node name="CharacterBody3D5" parent="." instance=ExtResource("3_rqr0e")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.26325, 10.2249, 3.07003)
-
-[node name="CharacterBody3D3" parent="." instance=ExtResource("3_rqr0e")]
+[node name="enemy3" parent="." instance=ExtResource("3_rqr0e")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.58408, 10.2249, 4.41792)
+character_num = 3
+
+[node name="enemy4" parent="." instance=ExtResource("3_rqr0e")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.26325, 10.2249, 3.07003)
+character_num = 4
+
+[node name="enemy5" parent="." instance=ExtResource("3_rqr0e")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.81692, 10.2249, 4.41792)
+character_num = 5
 
 [node name="Combat_System" parent="." instance=ExtResource("4_a5y88")]
+
+[connection signal="current_enemy" from="." to="enemy1" method="on_current_enemy"]
+[connection signal="current_enemy" from="." to="enemy2" method="on_current_enemy"]
+[connection signal="current_enemy" from="." to="enemy3" method="on_current_enemy"]
+[connection signal="current_enemy" from="." to="enemy4" method="on_current_enemy"]
+[connection signal="current_enemy" from="." to="enemy5" method="on_current_enemy"]
+[connection signal="health_update" from="player" to="Combat_System/player_health" method="_on_player_health_update"]
+[connection signal="enemy_death" from="enemy1" to="." method="on_enemy_death"]
+[connection signal="health_update" from="enemy1" to="Combat_System/enemy_health" method="on_health_update"]
+[connection signal="mouse_entered" from="enemy1" to="." method="_on_enemy_1_mouse_entered"]
+[connection signal="enemy_death" from="enemy2" to="." method="on_enemy_death"]
+[connection signal="health_update" from="enemy2" to="Combat_System/enemy_health2" method="on_health_update"]
+[connection signal="mouse_entered" from="enemy2" to="." method="_on_enemy_2_mouse_entered"]
+[connection signal="enemy_death" from="enemy3" to="." method="on_enemy_death"]
+[connection signal="health_update" from="enemy3" to="Combat_System/enemy_health3" method="on_health_update"]
+[connection signal="mouse_entered" from="enemy3" to="." method="_on_enemy_3_mouse_entered"]
+[connection signal="enemy_death" from="enemy4" to="." method="on_enemy_death"]
+[connection signal="health_update" from="enemy4" to="Combat_System/enemy_health4" method="on_health_update"]
+[connection signal="mouse_entered" from="enemy4" to="." method="_on_enemy_4_mouse_entered"]
+[connection signal="enemy_death" from="enemy5" to="." method="on_enemy_death"]
+[connection signal="health_update" from="enemy5" to="Combat_System/enemy_health5" method="on_health_update"]
+[connection signal="mouse_entered" from="enemy5" to="." method="_on_enemy_5_mouse_entered"]
+[connection signal="pressed" from="Combat_System/Attacks/VBoxContainer/Basic_Attack" to="enemy1" method="_on_basic_attack_pressed"]
+[connection signal="pressed" from="Combat_System/Attacks/VBoxContainer/Basic_Attack" to="enemy2" method="_on_basic_attack_pressed"]
+[connection signal="pressed" from="Combat_System/Attacks/VBoxContainer/Basic_Attack" to="enemy3" method="_on_basic_attack_pressed"]
+[connection signal="pressed" from="Combat_System/Attacks/VBoxContainer/Basic_Attack" to="enemy4" method="_on_basic_attack_pressed"]
+[connection signal="pressed" from="Combat_System/Attacks/VBoxContainer/Basic_Attack" to="enemy5" method="_on_basic_attack_pressed"]
+[connection signal="pressed" from="Combat_System/Attacks/VBoxContainer/Sword_Attack" to="enemy1" method="_on_sword_attack_pressed"]
+[connection signal="pressed" from="Combat_System/Attacks/VBoxContainer/Sword_Attack" to="enemy2" method="_on_sword_attack_pressed"]
+[connection signal="pressed" from="Combat_System/Attacks/VBoxContainer/Sword_Attack" to="enemy3" method="_on_sword_attack_pressed"]
+[connection signal="pressed" from="Combat_System/Attacks/VBoxContainer/Sword_Attack" to="enemy4" method="_on_sword_attack_pressed"]
+[connection signal="pressed" from="Combat_System/Attacks/VBoxContainer/Sword_Attack" to="enemy5" method="_on_sword_attack_pressed"]
+[connection signal="Mare_Sonus" from="Combat_System/Aquarium_Inventory/Container/Coastal_Section/swordfish" to="enemy1" method="_on_mare_sonus"]
+[connection signal="Mare_Sonus" from="Combat_System/Aquarium_Inventory/Container/Coastal_Section/swordfish" to="enemy2" method="_on_mare_sonus"]
+[connection signal="Mare_Sonus" from="Combat_System/Aquarium_Inventory/Container/Coastal_Section/swordfish" to="enemy3" method="_on_mare_sonus"]
+[connection signal="Mare_Sonus" from="Combat_System/Aquarium_Inventory/Container/Coastal_Section/swordfish" to="enemy4" method="_on_mare_sonus"]
+[connection signal="Mare_Sonus" from="Combat_System/Aquarium_Inventory/Container/Coastal_Section/swordfish" to="enemy5" method="_on_mare_sonus"]
+[connection signal="Maritimum_Remedium" from="Combat_System/Aquarium_Inventory/Container/Coastal_Section/pufferfish" to="player" method="_on_maritimum_remedium"]
+
+[editable path="Combat_System"]
