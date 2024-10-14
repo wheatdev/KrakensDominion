@@ -519,6 +519,11 @@ theme_override_styles/normal = ExtResource("8_7g6ep")
 text = "10/10"
 script = ExtResource("26_erior")
 
+[connection signal="end_turn" from="." to="Options/Attack_Button" method="_on_end_turn"]
+[connection signal="end_turn" from="." to="Options/Inventory_Button" method="_on_end_turn"]
+[connection signal="end_turn" from="." to="Attacks" method="_on_end_turn"]
+[connection signal="end_turn" from="." to="Aquarium_Tabs" method="_on__end_turn"]
+[connection signal="end_turn" from="." to="Aquarium_Inventory" method="_on_end_turn"]
 [connection signal="pressed" from="Options/Attack_Button" to="Attacks" method="_on_attack_button_pressed"]
 [connection signal="hide_inventory" from="Options/Inventory_Button" to="Aquarium_Tabs" method="_on_inventory_button_hide_inventory"]
 [connection signal="hide_inventory" from="Options/Inventory_Button" to="Aquarium_Inventory" method="_on_inventory_button_hide_inventory"]

@@ -26,3 +26,8 @@ func _on_attack_button_pressed():
 func _on_inventory_button_show_inventory():
 	hide()
 	is_hidden = true
+
+
+func _on_end_turn():
+	hide()
+	is_hidden = true

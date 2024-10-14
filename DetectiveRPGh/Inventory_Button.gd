@@ -29,3 +29,11 @@ func _on_pressed():
 func _on_attacks_attack_active():
 	hide_inventory.emit()
 	is_hidden = true
+
+
+func _on_end_turn():
+	disabled = true
+
+
+func _on_new_turn():
+	disabled = false

@@ -5,7 +5,7 @@ signal fish_amount(num_fish)
 
 func _ready():
 	#TODO Set num_fish to amount based on actual number of this fish
-	num_fish = 1
+	num_fish = GlobalVariables.fish1
 	fish_amount.emit(num_fish)
 
 

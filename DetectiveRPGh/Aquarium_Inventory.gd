@@ -17,3 +17,7 @@ func _on_inventory_button_show_inventory():
 
 func _on_inventory_button_hide_inventory():
 	hide()
+
+
+func _on_end_turn():
+	hide()

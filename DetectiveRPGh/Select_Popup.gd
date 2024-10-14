@@ -61,6 +61,7 @@ func _on_about_button_pressed():
 
 
 func _on_sacrifice_button_pressed():
+	GlobalVariables.is_sacrifice_pressed = true
 	if is_bass:
 		sacrifice.emit(1)
 	elif is_sunfish:

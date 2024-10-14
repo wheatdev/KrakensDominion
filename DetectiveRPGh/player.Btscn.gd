@@ -3,12 +3,17 @@ extends CharacterBody3D
 var fall_acceleration = 50
 var target_velocity = Vector3.ZERO
 var health = 10
+var pHealth = GlobalVariables.playerHealthMax
 var is_dead = false
 @export var character_num:int
 var current_selection = 0
+var enemy_amount = 0
 
 signal health_update(health)
 signal enemy_death()
+signal new_turn()
+signal player_damaged()
+signal player_death()
 
 func _physics_process(delta):
 	var position = Vector3() 
@@ -28,14 +33,19 @@ func _process(delta):
 		is_dead = true
 		hide()
 	
+	if pHealth <= 0:
+		player_death.emit()
+	
 
 func _on_basic_attack_pressed():
+	GlobalVariables.is_basic_attack_pressed = true
 	if not is_dead and character_num == current_selection and not character_num == 0:
 		health -= 1
 		health_update.emit(health)
 
 
 func _on_sword_attack_pressed():
+	GlobalVariables.is_sword_attack_pressed = true
 	if not is_dead and character_num == current_selection and not character_num == 0:
 		health -= 2
 		health_update.emit(health)
@@ -47,11 +57,33 @@ func on_current_enemy(current_enemy_selection):
 
 func _on_maritimum_remedium():
 	if not is_dead and character_num == 0:
-		health += 2
-		health_update.emit(health)
+		pHealth += 2
+		health_update.emit(pHealth)
 
 
 func _on_mare_sonus():
 	if not is_dead and character_num == current_selection and not character_num == 0:
 		health -= 5
 		health_update.emit(health)
+
+
+func _on_end_turn(temp_num_enemies):
+	enemy_amount = temp_num_enemies
+	player_damaged.emit()
+
+
+func _on_battle_enemies(num_enemies):
+	enemy_amount = num_enemies
+
+
+func _on_player_damaged():
+	if not is_dead and character_num == 0:
+		for i in range(enemy_amount):
+			pHealth -= 1
+			GlobalVariables.playerHealth = pHealth
+			health_update.emit(pHealth)
+	new_turn.emit()
+
+
+func _on_new_turn():
+	GlobalVariables.turn_ended = false

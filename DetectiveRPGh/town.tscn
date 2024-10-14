@@ -15,6 +15,38 @@
 [node name="Ground" parent="." instance=ExtResource("1_v2gin")]
 transform = Transform3D(5, 0, 0, 0, 1, 0, 0, 0, 5, -14.2699, -2.65182, -5.34674)
 
+[node name="Ground16" parent="." instance=ExtResource("1_v2gin")]
+transform = Transform3D(14, 0, 0, 0, 15, 0, 0, 0, 5, -4.82375, -2.65182, -5.34674)
+visible = false
+
+[node name="Ground23" parent="." instance=ExtResource("1_v2gin")]
+transform = Transform3D(14, 0, 0, 0, 15, 0, 0, 0, 10, -4.82375, -2.65182, -27.337)
+visible = false
+
+[node name="Ground20" parent="." instance=ExtResource("1_v2gin")]
+transform = Transform3D(14, 0, 0, 0, 15, 0, 0, 0, 5, -18.7591, -2.65182, -0.677312)
+visible = false
+
+[node name="Ground21" parent="." instance=ExtResource("1_v2gin")]
+transform = Transform3D(25, 0, 0, 0, 15, 0, 0, 0, 5, 13.0372, -2.65182, -0.677312)
+visible = false
+
+[node name="Ground22" parent="." instance=ExtResource("1_v2gin")]
+transform = Transform3D(25, 0, 0, 0, 15, 0, 0, 0, 5, -0.835211, -2.65182, -34.6345)
+visible = false
+
+[node name="Ground17" parent="." instance=ExtResource("1_v2gin")]
+transform = Transform3D(14, 0, 0, 0, 15, 0, 0, 0, 5, -33.4098, -2.65182, -5.34674)
+visible = false
+
+[node name="Ground18" parent="." instance=ExtResource("1_v2gin")]
+transform = Transform3D(30, 0, 0, 0, 15, 0, 0, 0, 5, -23.5795, -2.65182, -14.9888)
+visible = false
+
+[node name="Ground19" parent="." instance=ExtResource("1_v2gin")]
+transform = Transform3D(1, 0, 0, 0, 15, 0, 0, 0, 5, -37.5596, -2.65182, -9.94078)
+visible = false
+
 [node name="Ground3" parent="." instance=ExtResource("1_v2gin")]
 transform = Transform3D(5, 0, 0, 0, 1, 0, 0, 0, 5, -23.6744, -1.0509, -5.27698)
 
