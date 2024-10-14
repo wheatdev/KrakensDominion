@@ -20,6 +20,10 @@ func _physics_process(delta):
 		speed = 7
 	else:
 		speed = 5
+	if Input.is_action_just_pressed("turn_left"):
+		rotate_y(45)
+	if Input.is_action_just_pressed("turn_right"):
+		rotate_y(-45)
 	
 	if position != Vector3.ZERO:
 		position = position.normalized()
@@ -57,6 +61,13 @@ func _on_loading_zone_swap(type):
 		get_tree().change_scene_to_file("res://church.tscn")
 	if type == 2:
 		get_tree().change_scene_to_file("res://town2.tscn")
-
+	if type == 3:
+		get_tree().change_scene_to_file("res://churchroomL.tscn")
+	if type == 4:
+		get_tree().change_scene_to_file("res://churchroomR.tscn")
+	if type == 5:
+		get_tree().change_scene_to_file("res://churchL.tscn")
+	if type == 6:
+		get_tree().change_scene_to_file("res://churchR.tscn")
 
 	

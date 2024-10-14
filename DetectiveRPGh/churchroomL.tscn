@@ -1,0 +1,61 @@
+[gd_scene load_steps=8 format=3 uid="uid://depramue2njvs"]
+
+[ext_resource type="PackedScene" uid="uid://k782roghdpuo" path="res://player.tscn" id="1_8whno"]
+[ext_resource type="PackedScene" uid="uid://i7e708v2icx7" path="res://NPC.tscn" id="2_jnlsc"]
+[ext_resource type="Script" path="res://NPC.gd" id="3_8eb67"]
+[ext_resource type="PackedScene" uid="uid://oxvm4ywu5g2a" path="res://enemy.tscn" id="4_a1stw"]
+[ext_resource type="Script" path="res://enemy.gd" id="5_4443u"]
+[ext_resource type="PackedScene" uid="uid://c2787nxvxwr4s" path="res://loadingzone.tscn" id="6_2ic5m"]
+[ext_resource type="PackedScene" uid="uid://1nlg0bi7yola" path="res://solid.tscn" id="7_t6aur"]
+
+[node name="Node" type="Node"]
+
+[node name="Player" parent="." instance=ExtResource("1_8whno")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.1814, -1.42442, -1.98059)
+
+[node name="NPC" parent="." instance=ExtResource("2_jnlsc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.1081, -0.00320822, -13.4583)
+script = ExtResource("3_8eb67")
+
+[node name="Enemy" parent="." instance=ExtResource("4_a1stw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.6623, 1.59333, -48.3706)
+script = ExtResource("5_4443u")
+
+[node name="LoadingZone" parent="." instance=ExtResource("6_2ic5m")]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 1, -13.5551, 0.992652, 1.70133)
+type = 5
+
+[node name="LoadingZone2" parent="." instance=ExtResource("6_2ic5m")]
+transform = Transform3D(1, 0, 0, 0, 5, 0, 0, 0, 8, -32.455, 3.62521, -63.3097)
+type = 2
+
+[node name="LoadingZone3" parent="." instance=ExtResource("6_2ic5m")]
+transform = Transform3D(1, 0, 0, 0, 5, 0, 0, 0, 8, 5.34654, 3.62521, -63.3097)
+type = 2
+
+[node name="Ground" parent="." instance=ExtResource("7_t6aur")]
+transform = Transform3D(15, 0, 0, 0, 1, 0, 0, 0, 15, -14.2699, -2.65182, -5.00649)
+
+[node name="Ground2" parent="." instance=ExtResource("7_t6aur")]
+transform = Transform3D(15, 0, 0, 0, 15, 0, 0, 0, 1, -14.2699, 3.99913, -12.7971)
+
+[node name="Ground4" parent="." instance=ExtResource("7_t6aur")]
+transform = Transform3D(1, 0, 0, 0, 15, 0, 0, 0, 15, -6.75213, 3.99913, -4.91755)
+
+[node name="Ground5" parent="." instance=ExtResource("7_t6aur")]
+transform = Transform3D(1, 0, 0, 0, 15, 0, 0, 0, 15, -21.72, 3.99913, -4.91755)
+
+[node name="Ground3" parent="." instance=ExtResource("7_t6aur")]
+transform = Transform3D(15, 0, 0, 0, 15, 0, 0, 0, 1, -14.2699, 3.99913, 2.97054)
+
+[connection signal="body_entered" from="NPC" to="NPC" method="_on_body_entered"]
+[connection signal="body_exited" from="NPC" to="Player" method="_on_area_3d_body_exited"]
+[connection signal="body_exited" from="NPC" to="NPC" method="_on_body_exited"]
+[connection signal="speaking" from="NPC" to="Player" method="_on_area_3d_speaking"]
+[connection signal="body_entered" from="Enemy" to="Player" method="_on_area_3d_2_body_entered"]
+[connection signal="Swap" from="LoadingZone" to="Player" method="_on_loading_zone_swap"]
+[connection signal="body_entered" from="LoadingZone" to="LoadingZone" method="_on_body_entered"]
+[connection signal="Swap" from="LoadingZone2" to="Player" method="_on_loading_zone_swap"]
+[connection signal="body_entered" from="LoadingZone2" to="LoadingZone2" method="_on_body_entered"]
+[connection signal="Swap" from="LoadingZone3" to="Player" method="_on_loading_zone_swap"]
+[connection signal="body_entered" from="LoadingZone3" to="LoadingZone3" method="_on_body_entered"]
