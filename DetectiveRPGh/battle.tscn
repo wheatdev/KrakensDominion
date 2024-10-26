@@ -110,11 +110,5 @@ text = ""
 [connection signal="pressed" from="Combat_System/Attacks/VBoxContainer/Sword_Attack" to="enemy4" method="_on_sword_attack_pressed"]
 [connection signal="pressed" from="Combat_System/Attacks/VBoxContainer/Sword_Attack" to="enemy5" method="_on_sword_attack_pressed"]
 [connection signal="pressed" from="Combat_System/Attacks/VBoxContainer/Sword_Attack" to="Combat_System" method="_on_sword_attack_pressed"]
-[connection signal="Mare_Sonus" from="Combat_System/Aquarium_Inventory/Container/Coastal_Section/swordfish" to="enemy1" method="_on_mare_sonus"]
-[connection signal="Mare_Sonus" from="Combat_System/Aquarium_Inventory/Container/Coastal_Section/swordfish" to="enemy2" method="_on_mare_sonus"]
-[connection signal="Mare_Sonus" from="Combat_System/Aquarium_Inventory/Container/Coastal_Section/swordfish" to="enemy3" method="_on_mare_sonus"]
-[connection signal="Mare_Sonus" from="Combat_System/Aquarium_Inventory/Container/Coastal_Section/swordfish" to="enemy4" method="_on_mare_sonus"]
-[connection signal="Mare_Sonus" from="Combat_System/Aquarium_Inventory/Container/Coastal_Section/swordfish" to="enemy5" method="_on_mare_sonus"]
-[connection signal="Maritimum_Remedium" from="Combat_System/Aquarium_Inventory/Container/Coastal_Section/pufferfish" to="player" method="_on_maritimum_remedium"]
 
 [editable path="Combat_System"]

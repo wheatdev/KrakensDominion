@@ -7,10 +7,10 @@ var playerAttack = 3
 var playerSpeed = 5
 var playerMagic = 10
 
-var fish1 = 4
-var fish2 = 0 
-var fish3 = 3 
-var fish4 = 4 
+var fish1 = 7
+var fish2 = 3
+var fish3 = 2
+var fish4 = 0
 var fish5 = 0 
 
 var fish_amount = fish1 + fish2 + fish3 + fish4 + fish5
