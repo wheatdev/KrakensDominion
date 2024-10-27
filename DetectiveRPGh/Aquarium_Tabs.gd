@@ -19,5 +19,5 @@ func _on_inventory_button_hide_inventory():
 	hide()
 
 
-func _on__end_turn():
+func _on__end_turn(num_enemies):
 	hide()

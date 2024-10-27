@@ -28,6 +28,6 @@ func _on_inventory_button_show_inventory():
 	is_hidden = true
 
 
-func _on_end_turn():
+func _on_end_turn(num_enemies):
 	hide()
 	is_hidden = true

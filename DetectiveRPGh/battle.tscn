@@ -1,10 +1,13 @@
-[gd_scene load_steps=6 format=3 uid="uid://eyvodouvst8v"]
+[gd_scene load_steps=9 format=3 uid="uid://eyvodouvst8v"]
 
 [ext_resource type="Script" path="res://battle.gd" id="1_4xtc3"]
 [ext_resource type="PackedScene" uid="uid://1nlg0bi7yola" path="res://solid.tscn" id="1_jy7ku"]
 [ext_resource type="PackedScene" uid="uid://b44upboqtebg6" path="res://player.Btscn.tscn" id="2_gghu6"]
 [ext_resource type="PackedScene" uid="uid://d2hiyjvlg48mv" path="res://enemybattle.tscn" id="3_rqr0e"]
 [ext_resource type="PackedScene" uid="uid://ciogt46jib2vv" path="res://combat_system.tscn" id="4_a5y88"]
+[ext_resource type="Script" path="res://Sacrifice_Button.gd" id="6_ius45"]
+[ext_resource type="Script" path="res://Basic_Attack.gd" id="6_y3g5w"]
+[ext_resource type="Script" path="res://Sword_Attack.gd" id="7_grhxg"]
 
 [node name="battle" type="Node"]
 script = ExtResource("1_4xtc3")
@@ -42,6 +45,15 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.81692, 10.2249, 4.41792)
 character_num = 5
 
 [node name="Combat_System" parent="." instance=ExtResource("4_a5y88")]
+
+[node name="Basic_Attack" parent="Combat_System/Attacks/VBoxContainer" index="0"]
+script = ExtResource("6_y3g5w")
+
+[node name="Sword_Attack" parent="Combat_System/Attacks/VBoxContainer" index="1"]
+script = ExtResource("7_grhxg")
+
+[node name="Sacrifice_Button" parent="Combat_System/Select_Popup" index="1"]
+script = ExtResource("6_ius45")
 
 [node name="player_health" parent="Combat_System" index="5"]
 text = ""
@@ -110,5 +122,11 @@ text = ""
 [connection signal="pressed" from="Combat_System/Attacks/VBoxContainer/Sword_Attack" to="enemy4" method="_on_sword_attack_pressed"]
 [connection signal="pressed" from="Combat_System/Attacks/VBoxContainer/Sword_Attack" to="enemy5" method="_on_sword_attack_pressed"]
 [connection signal="pressed" from="Combat_System/Attacks/VBoxContainer/Sword_Attack" to="Combat_System" method="_on_sword_attack_pressed"]
+[connection signal="Mare_Sonus" from="Combat_System/Aquarium_Inventory/Container/Coastal_Section/bluefin_bass" to="enemy1" method="_on_mare_sonus"]
+[connection signal="Mare_Sonus" from="Combat_System/Aquarium_Inventory/Container/Coastal_Section/bluefin_bass" to="enemy2" method="_on_mare_sonus"]
+[connection signal="Mare_Sonus" from="Combat_System/Aquarium_Inventory/Container/Coastal_Section/bluefin_bass" to="enemy3" method="_on_mare_sonus"]
+[connection signal="Mare_Sonus" from="Combat_System/Aquarium_Inventory/Container/Coastal_Section/bluefin_bass" to="enemy4" method="_on_mare_sonus"]
+[connection signal="Mare_Sonus" from="Combat_System/Aquarium_Inventory/Container/Coastal_Section/bluefin_bass" to="enemy5" method="_on_mare_sonus"]
+[connection signal="Maritimum_Remedium" from="Combat_System/Aquarium_Inventory/Container/Coastal_Section/blowfish" to="player" method="_on_maritimum_remedium"]
 
 [editable path="Combat_System"]

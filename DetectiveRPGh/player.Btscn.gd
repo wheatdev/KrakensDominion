@@ -8,12 +8,14 @@ var is_dead = false
 @export var character_num:int
 var current_selection = 0
 var enemy_amount = 0
+@export var is_selected = false
 
 signal health_update(health)
 signal enemy_death()
 signal new_turn()
 signal player_damaged()
 signal player_death()
+signal selection_update(is_selected)
 
 func _physics_process(delta):
 	var position = Vector3() 
@@ -40,6 +42,7 @@ func _process(delta):
 func _on_basic_attack_pressed():
 	GlobalVariables.is_basic_attack_pressed = true
 	if not is_dead and character_num == current_selection and not character_num == 0:
+		print(character_num)
 		health -= 1
 		health_update.emit(health)
 
@@ -53,6 +56,11 @@ func _on_sword_attack_pressed():
 
 func on_current_enemy(current_enemy_selection):
 	current_selection = current_enemy_selection
+	if character_num == current_enemy_selection and character_num != 0:
+		is_selected = true
+	else:
+		is_selected = false
+	selection_update.emit(is_selected)
 
 
 func _on_maritimum_remedium():

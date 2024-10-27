@@ -54,8 +54,6 @@ func on_item_selected():
 
 
 func _on_about_button_pressed():
-	hide()
-	is_hidden = true
 	pass
 	#TODO Emit a signal to show a popup menu for each individual fish based on their boolean
 

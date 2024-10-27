@@ -8,12 +8,5 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	pass
-
-
-func _on_end_turn(num_enemies):
-	disabled = true
-
-
-func _on_new_turn():
-	disabled = false
+	if button_pressed:
+		GlobalVariables.is_sacrifice_pressed = true

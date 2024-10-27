@@ -587,6 +587,7 @@ script = ExtResource("26_erior")
 [connection signal="pressed" from="Aquarium_Inventory/Container/Coastal_Section/mackerel" to="Aquarium_Inventory/Container/Coastal_Section/mackerel" method="_on_pressed"]
 [connection signal="pressed" from="Aquarium_Inventory/Container/Coastal_Section/mackerel" to="Select_Popup" method="on_item_selected"]
 [connection signal="no_fish" from="Aquarium_Inventory/Container/Coastal_Section/mackerel/num_fish" to="Aquarium_Inventory/Container/Coastal_Section/mackerel" method="_on_no_fish"]
+[connection signal="sacrifice" from="Select_Popup" to="." method="_on_select_popup_sacrifice"]
 [connection signal="sacrifice" from="Select_Popup" to="Aquarium_Inventory/Container/Coastal_Section/bluefin_bass" method="_on_sacrifice"]
 [connection signal="sacrifice" from="Select_Popup" to="Aquarium_Inventory/Container/Coastal_Section/sun_fish" method="_on_sacrifice"]
 [connection signal="sacrifice" from="Select_Popup" to="Aquarium_Inventory/Container/Coastal_Section/blowfish" method="_on_sacrifice"]

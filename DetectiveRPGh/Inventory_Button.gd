@@ -31,8 +31,11 @@ func _on_attacks_attack_active():
 	is_hidden = true
 
 
-func _on_end_turn():
+func _on_end_turn(num_enemies):
 	disabled = true
+	if GlobalVariables.is_sacrifice_pressed:
+		is_hidden = true
+		GlobalVariables.is_sacrifice_pressed = false
 
 
 func _on_new_turn():

@@ -1,7 +1,7 @@
 extends Control
 
 signal end_turn
-var cur_enemy = 0
+var cur_enemy = -1
 var temp_num_enemies = 5
 var enemy1_health = 10
 var enemy2_health = 10
@@ -39,10 +39,9 @@ func _on_turn_ending_button_pressed():
 		if enemy5_health - damage_amount <= 0:
 			temp_num_enemies -= 1
 	else:
-		print("Error: current enemy not assigned in combat system")
+		print("Error: didn't recieve value of enemy")
 	GlobalVariables.is_basic_attack_pressed = false
 	GlobalVariables.is_sword_attack_pressed = false
-	GlobalVariables.is_sacrifice_pressed = false
 	end_turn.emit(temp_num_enemies)
 
 
@@ -80,3 +79,7 @@ func _on_basic_attack_pressed():
 
 func _on_sword_attack_pressed():
 	GlobalVariables.is_sword_attack_pressed = true
+
+
+func _on_select_popup_sacrifice(num):
+	GlobalVariables.is_sacrifice_pressed = true
