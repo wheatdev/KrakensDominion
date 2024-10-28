@@ -15,13 +15,17 @@ func _on_turn_ending_button_pressed():
 		damage_amount = 1
 	elif GlobalVariables.is_sword_attack_pressed:
 		damage_amount = 2
-	elif GlobalVariables.is_sacrifice_pressed:
+	elif GlobalVariables.is_sacrifice_pressed and not GlobalVariables.current_selected_fish == 2:
 		damage_amount = 5
+	elif GlobalVariables.is_defend_pressed or GlobalVariables.current_selected_fish == 2:
+		damage_amount = 0
 	else:
 		print("Error: Other turn ending button pressed")
 		print("Basic attack?: " + str(GlobalVariables.is_basic_attack_pressed))
 		print("Sword attack?: " + str(GlobalVariables.is_sword_attack_pressed))
 		print("Sacrifice?: "+ str(GlobalVariables.is_sacrifice_pressed))
+		print("Defend?: "+ str(GlobalVariables.is_defend_pressed))
+		print("Sunfish?: "+ str(GlobalVariables.current_selected_fish) + " Should equal 2 if so")
 	
 	if cur_enemy == 1:
 		if enemy1_health - damage_amount <= 0:

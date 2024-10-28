@@ -1,14 +1,14 @@
 [gd_scene load_steps=9 format=3 uid="uid://d2hiyjvlg48mv"]
 
 [ext_resource type="Script" path="res://player.Btscn.gd" id="1_rqpwj"]
-[ext_resource type="Texture2D" uid="uid://cg8pr4qkb7qyt" path="res://John Player.png" id="2_5svex"]
+[ext_resource type="Texture2D" uid="uid://cuw33v120le2k" path="res://ol_fishface.png" id="2_183ei"]
 [ext_resource type="Texture2D" uid="uid://bxdo0h62if510" path="res://square-outline-xxl.png" id="3_8dvnq"]
 [ext_resource type="Script" path="res://selection_outline.gd" id="4_0dxgu"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_m41de"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qm8hi"]
-albedo_texture = ExtResource("2_5svex")
+albedo_texture = ExtResource("2_183ei")
 
 [sub_resource type="ORMMaterial3D" id="ORMMaterial3D_8qcry"]
 transparency = 3

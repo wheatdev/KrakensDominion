@@ -21,3 +21,4 @@ var turn_ended = false
 var is_sacrifice_pressed = false
 var is_basic_attack_pressed = false
 var is_sword_attack_pressed = false
+var is_defend_pressed = false

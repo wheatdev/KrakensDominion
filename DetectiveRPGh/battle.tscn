@@ -1,10 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://eyvodouvst8v"]
+[gd_scene load_steps=10 format=3 uid="uid://eyvodouvst8v"]
 
 [ext_resource type="Script" path="res://battle.gd" id="1_4xtc3"]
 [ext_resource type="PackedScene" uid="uid://1nlg0bi7yola" path="res://solid.tscn" id="1_jy7ku"]
 [ext_resource type="PackedScene" uid="uid://b44upboqtebg6" path="res://player.Btscn.tscn" id="2_gghu6"]
 [ext_resource type="PackedScene" uid="uid://d2hiyjvlg48mv" path="res://enemybattle.tscn" id="3_rqr0e"]
 [ext_resource type="PackedScene" uid="uid://ciogt46jib2vv" path="res://combat_system.tscn" id="4_a5y88"]
+[ext_resource type="Script" path="res://Defend_Button.gd" id="6_byqh3"]
 [ext_resource type="Script" path="res://Sacrifice_Button.gd" id="6_ius45"]
 [ext_resource type="Script" path="res://Basic_Attack.gd" id="6_y3g5w"]
 [ext_resource type="Script" path="res://Sword_Attack.gd" id="7_grhxg"]
@@ -16,35 +17,38 @@ script = ExtResource("1_4xtc3")
 transform = Transform3D(40, 0, 0, 0, 20, 0, 0, 0, 25, 0, -9.56285, 6.65243)
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.978592, 0.205811, 0, -0.205811, 0.978592, 2.34969, 2.27629, 12.8707)
+transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 2.34969, 10.1351, 12.6121)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -0.641945, 0.766751, 0, -0.766751, -0.641945, 0, 13.5496, -8.79927)
 
 [node name="player" parent="." instance=ExtResource("2_gghu6")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.98143, 10.3432, 5.94105)
+transform = Transform3D(7, 0, 0, 0, 4.94975, 4.94975, 0, -4.94975, 4.94975, -6.36789, 10.3432, 3.57075)
 
 [node name="enemy1" parent="." instance=ExtResource("3_rqr0e")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.83978, 10.2249, 4.41792)
+transform = Transform3D(2, 0, 0, 0, 1.41421, 4.59613, 0, -1.41421, 4.59613, 1.83161, 10.2249, 5.88405)
 character_num = 1
 
 [node name="enemy2" parent="." instance=ExtResource("3_rqr0e")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.35505, 10.2249, 2.52072)
+transform = Transform3D(2.5, 0, 0, 0, 1.76777, 5.74524, 0, -1.76777, 5.74524, 3.3511, 10.2249, 1.28754)
 character_num = 2
 
 [node name="enemy3" parent="." instance=ExtResource("3_rqr0e")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.58408, 10.2249, 4.41792)
+transform = Transform3D(2, 0, 0, 0, 1.41421, 4.59613, 0, -1.41421, 4.59613, 4.58356, 10.2249, 5.88405)
 character_num = 3
 
 [node name="enemy4" parent="." instance=ExtResource("3_rqr0e")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.26325, 10.2249, 3.07003)
+transform = Transform3D(2.5, 0, 0, 0, 1.76777, 5.74524, 0, -1.76777, 5.74524, 6.2674, 10.2249, 1.62656)
 character_num = 4
 
 [node name="enemy5" parent="." instance=ExtResource("3_rqr0e")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.81692, 10.2249, 4.41792)
+transform = Transform3D(2, 0, 0, 0, 1.41421, 4.59612, 0, -1.41421, 4.59612, 7.8254, 10.2249, 5.88405)
 character_num = 5
 
 [node name="Combat_System" parent="." instance=ExtResource("4_a5y88")]
+
+[node name="Defend_Button" parent="Combat_System/Options" index="2"]
+script = ExtResource("6_byqh3")
 
 [node name="Basic_Attack" parent="Combat_System/Attacks/VBoxContainer" index="0"]
 script = ExtResource("6_y3g5w")
@@ -108,6 +112,7 @@ text = ""
 [connection signal="new_turn" from="enemy5" to="enemy5" method="_on_new_turn"]
 [connection signal="player_damaged" from="enemy5" to="player" method="_on_player_damaged"]
 [connection signal="end_turn" from="Combat_System" to="player" method="_on_end_turn"]
+[connection signal="pressed" from="Combat_System/Options/Defend_Button" to="player" method="_on_defend_button_pressed"]
 [connection signal="pressed" from="Combat_System/Attacks/VBoxContainer/Basic_Attack" to="player" method="_on_end_turn"]
 [connection signal="pressed" from="Combat_System/Attacks/VBoxContainer/Basic_Attack" to="enemy1" method="_on_basic_attack_pressed"]
 [connection signal="pressed" from="Combat_System/Attacks/VBoxContainer/Basic_Attack" to="enemy2" method="_on_basic_attack_pressed"]
@@ -127,6 +132,7 @@ text = ""
 [connection signal="Mare_Sonus" from="Combat_System/Aquarium_Inventory/Container/Coastal_Section/bluefin_bass" to="enemy3" method="_on_mare_sonus"]
 [connection signal="Mare_Sonus" from="Combat_System/Aquarium_Inventory/Container/Coastal_Section/bluefin_bass" to="enemy4" method="_on_mare_sonus"]
 [connection signal="Mare_Sonus" from="Combat_System/Aquarium_Inventory/Container/Coastal_Section/bluefin_bass" to="enemy5" method="_on_mare_sonus"]
+[connection signal="Fluctus_Scutum" from="Combat_System/Aquarium_Inventory/Container/Coastal_Section/sun_fish" to="player" method="_on_fluctus_scutum"]
 [connection signal="Maritimum_Remedium" from="Combat_System/Aquarium_Inventory/Container/Coastal_Section/blowfish" to="player" method="_on_maritimum_remedium"]
 
 [editable path="Combat_System"]

@@ -1,12 +1,12 @@
 [gd_scene load_steps=7 format=3 uid="uid://b44upboqtebg6"]
 
 [ext_resource type="Script" path="res://player.Btscn.gd" id="1_6x31m"]
-[ext_resource type="Texture2D" uid="uid://6hapkfxw8jsq" path="res://Moonlight.png" id="2_drjmy"]
+[ext_resource type="Texture2D" uid="uid://c41e6vg53i73x" path="res://jerome_1.png" id="2_e81bs"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_ywicx"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6ofbg"]
-albedo_texture = ExtResource("2_drjmy")
+albedo_texture = ExtResource("2_e81bs")
 
 [sub_resource type="ORMMaterial3D" id="ORMMaterial3D_8qcry"]
 transparency = 3
@@ -25,9 +25,6 @@ shape = SubResource("SphereShape3D_ywicx")
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 material_override = SubResource("StandardMaterial3D_6ofbg")
 mesh = SubResource("QuadMesh_h4bee")
-
-[node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.949107, 0.314953, 0, -0.314953, 0.949107, 0, 1.00125, 1.77112)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.574391, 0.818581, 0, -0.818581, 0.574391, 0, 3.4834, 2.26731)

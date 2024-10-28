@@ -9,6 +9,7 @@ var is_dead = false
 var current_selection = 0
 var enemy_amount = 0
 @export var is_selected = false
+var is_player_blocking = false
 
 signal health_update(health)
 signal enemy_death()
@@ -87,11 +88,23 @@ func _on_battle_enemies(num_enemies):
 func _on_player_damaged():
 	if not is_dead and character_num == 0:
 		for i in range(enemy_amount):
-			pHealth -= 1
+			if not is_player_blocking and not GlobalVariables.is_defend_pressed and not GlobalVariables.current_selected_fish == 2:
+				pHealth -= 1
 			GlobalVariables.playerHealth = pHealth
 			health_update.emit(pHealth)
+	if GlobalVariables.is_defend_pressed:
+		GlobalVariables.is_defend_pressed = false
+	is_player_blocking = false
 	new_turn.emit()
 
 
 func _on_new_turn():
 	GlobalVariables.turn_ended = false
+
+
+func _on_defend_button_pressed():
+	is_player_blocking = true
+
+
+func _on_fluctus_scutum():
+	is_player_blocking = true
