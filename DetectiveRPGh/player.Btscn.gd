@@ -65,8 +65,8 @@ func on_current_enemy(current_enemy_selection):
 
 
 func _on_maritimum_remedium():
-	if not is_dead and character_num == 0:
-		pHealth += 2
+	if not is_dead:
+		pHealth += 4
 		health_update.emit(pHealth)
 
 

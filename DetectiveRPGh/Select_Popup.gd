@@ -5,6 +5,8 @@ var is_bass:bool = false
 var is_sunfish:bool = false
 var is_blowfish:bool = false
 var is_mackerel:bool = false
+var current_fish = 0
+var temp_fish = 0
 
 signal sacrifice(num)
 
@@ -15,14 +17,18 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	pass
+	current_fish = GlobalVariables.current_selected_fish
 
 
 func on_item_selected():
 	set_global_position(get_global_mouse_position())
-	if(is_hidden):
+	if is_hidden:
+		temp_fish = current_fish
 		show()
 		is_hidden = false
+	elif not is_hidden and current_fish != temp_fish:
+		set_global_position(get_global_mouse_position())
+		temp_fish = current_fish
 	else:
 		hide()
 		is_hidden = true

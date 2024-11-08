@@ -1,4 +1,4 @@
-[gd_scene load_steps=47 format=3 uid="uid://ciogt46jib2vv"]
+[gd_scene load_steps=48 format=3 uid="uid://ciogt46jib2vv"]
 
 [ext_resource type="Script" path="res://Combat_System.gd" id="1_buiva"]
 [ext_resource type="FontFile" uid="uid://fs7hq8j3napg" path="res://Dominion Fonts/beyond_wonderland/Beyond Wonderland.ttf" id="2_0wna8"]
@@ -31,6 +31,7 @@
 [ext_resource type="FontFile" uid="uid://eesvfrcw2cse" path="res://Dominion Fonts/love_craft/Love Craft Italic.otf" id="24_30ym3"]
 [ext_resource type="Script" path="res://player_health.gd" id="25_iaypg"]
 [ext_resource type="Script" path="res://enemy_health.gd" id="26_erior"]
+[ext_resource type="Script" path="res://About_Popup.gd" id="27_uuaeq"]
 
 [sub_resource type="Theme" id="Theme_2vqcs"]
 default_font = ExtResource("2_0wna8")
@@ -248,10 +249,10 @@ text = "Sword Attack"
 
 [node name="Aquarium_Tabs" type="HBoxContainer" parent="."]
 layout_mode = 0
-offset_left = 623.0
-offset_top = 3.0
-offset_right = 1136.0
-offset_bottom = 43.0
+offset_left = 619.0
+offset_top = 380.0
+offset_right = 1144.0
+offset_bottom = 420.0
 theme = SubResource("Theme_gki45")
 script = ExtResource("6_wr8ej")
 
@@ -304,10 +305,10 @@ text = "Glacial"
 
 [node name="Aquarium_Inventory" type="ScrollContainer" parent="."]
 layout_mode = 0
-offset_left = 622.0
-offset_top = 44.0
-offset_right = 1150.0
-offset_bottom = 265.0
+offset_left = 618.0
+offset_top = 421.0
+offset_right = 1146.0
+offset_bottom = 642.0
 theme_override_styles/panel = ExtResource("8_1ihcd")
 horizontal_scroll_mode = 0
 vertical_scroll_mode = 2
@@ -410,8 +411,22 @@ layout_mode = 2
 columns = 4
 script = ExtResource("16_qwi7o")
 
+[node name="About_Popup" type="RichTextLabel" parent="."]
+modulate = Color(0, 0.858824, 0.862745, 1)
+layout_mode = 2
+offset_left = 394.0
+offset_top = 220.0
+offset_right = 815.0
+offset_bottom = 376.0
+theme_override_fonts/normal_font = ExtResource("2_0wna8")
+theme_override_font_sizes/normal_font_size = 23
+theme_override_styles/normal = ExtResource("8_7g6ep")
+text = "Fish Name
+---------------------
+Desc."
+script = ExtResource("27_uuaeq")
+
 [node name="Select_Popup" type="VBoxContainer" parent="."]
-visible = false
 layout_mode = 0
 offset_left = 539.0
 offset_top = 265.0
@@ -593,5 +608,7 @@ script = ExtResource("26_erior")
 [connection signal="sacrifice" from="Select_Popup" to="Aquarium_Inventory/Container/Coastal_Section/blowfish" method="_on_sacrifice"]
 [connection signal="sacrifice" from="Select_Popup" to="Aquarium_Inventory/Container/Coastal_Section/mackerel" method="_on_sacrifice"]
 [connection signal="pressed" from="Select_Popup/About_Button" to="Select_Popup" method="_on_about_button_pressed"]
+[connection signal="pressed" from="Select_Popup/About_Button" to="About_Popup" method="_on_about_button_pressed"]
 [connection signal="pressed" from="Select_Popup/Sacrifice_Button" to="." method="_on_turn_ending_button_pressed"]
 [connection signal="pressed" from="Select_Popup/Sacrifice_Button" to="Select_Popup" method="_on_sacrifice_button_pressed"]
+[connection signal="pressed" from="Select_Popup/Sacrifice_Button" to="About_Popup" method="_on_sacrifice_button_pressed"]

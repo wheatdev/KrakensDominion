@@ -7,9 +7,9 @@ var playerAttack = 3
 var playerSpeed = 5
 var playerMagic = 10
 
-var fish1 = 7
+var fish1 = 10
 var fish2 = 3
-var fish3 = 2
+var fish3 = 4
 var fish4 = 0
 var fish5 = 0 
 
