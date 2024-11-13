@@ -1,6 +1,6 @@
 extends Node
 
-var num_enemies = 5
+var num_enemies = 5 #only up to 5 max
 var current_enemy_selection = 0
 
 signal current_enemy(current_enemy_selection)

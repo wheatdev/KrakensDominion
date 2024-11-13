@@ -39,8 +39,10 @@ func _on_about_button_pressed():
 		is_hidden = false
 		change_text()
 	elif not is_hidden and current_fish != temp_fish:
+		temp_fish = current_fish
 		change_text()
 	else:
+		temp_fish = current_fish
 		hide()
 		is_hidden = true
 

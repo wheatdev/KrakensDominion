@@ -9,6 +9,8 @@ var current_fish = 0
 var temp_fish = 0
 
 signal sacrifice(num)
+signal sacrifice_popup()
+signal end_turn_popup()
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -30,6 +32,7 @@ func on_item_selected():
 		set_global_position(get_global_mouse_position())
 		temp_fish = current_fish
 	else:
+		temp_fish = current_fish
 		hide()
 		is_hidden = true
 	if GlobalVariables.current_selected_fish == 1:
@@ -59,13 +62,15 @@ func on_item_selected():
 		is_mackerel = false
 
 
-func _on_about_button_pressed():
-	pass
-	#TODO Emit a signal to show a popup menu for each individual fish based on their boolean
-
 
 func _on_sacrifice_button_pressed():
-	GlobalVariables.is_sacrifice_pressed = true
+	if GlobalVariables.is_sacrifice_confirmed:
+		GlobalVariables.is_sacrifice_pressed = true
+		sacrifice_emitter()
+	else:
+		sacrifice_popup.emit()
+
+func sacrifice_emitter():
 	if is_bass:
 		sacrifice.emit(1)
 	elif is_sunfish:
@@ -78,3 +83,9 @@ func _on_sacrifice_button_pressed():
 		sacrifice.emit(0)
 	hide()
 	is_hidden = true
+	end_turn_popup.emit()
+
+
+func _on_sacrifice_accept_pressed():
+	GlobalVariables.is_sacrifice_confirmed = true
+	_on_sacrifice_button_pressed()

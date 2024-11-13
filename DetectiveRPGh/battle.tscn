@@ -60,7 +60,31 @@ script = ExtResource("7_grhxg")
 script = ExtResource("6_ius45")
 
 [node name="player_health" parent="Combat_System" index="5"]
+visible = true
 text = ""
+
+[node name="enemy_health" parent="Combat_System" index="6"]
+visible = true
+number_indicator = 1
+
+[node name="enemy_health2" parent="Combat_System" index="7"]
+visible = true
+number_indicator = 2
+
+[node name="enemy_health3" parent="Combat_System" index="8"]
+visible = true
+number_indicator = 3
+
+[node name="enemy_health4" parent="Combat_System" index="9"]
+visible = true
+number_indicator = 4
+
+[node name="enemy_health5" parent="Combat_System" index="10"]
+visible = true
+number_indicator = 5
+
+[node name="About_Popup" parent="Combat_System" index="11"]
+visible = true
 
 [connection signal="current_enemy" from="." to="enemy1" method="on_current_enemy"]
 [connection signal="current_enemy" from="." to="enemy2" method="on_current_enemy"]
@@ -75,6 +99,11 @@ text = ""
 [connection signal="enemies" from="." to="enemy4" method="_on_battle_enemies"]
 [connection signal="enemies" from="." to="enemy5" method="_on_battle_enemies"]
 [connection signal="enemies" from="." to="Combat_System" method="_on_get_enemies"]
+[connection signal="enemies" from="." to="Combat_System/enemy_health" method="_on_given_enemies"]
+[connection signal="enemies" from="." to="Combat_System/enemy_health2" method="_on_given_enemies"]
+[connection signal="enemies" from="." to="Combat_System/enemy_health3" method="_on_given_enemies"]
+[connection signal="enemies" from="." to="Combat_System/enemy_health4" method="_on_given_enemies"]
+[connection signal="enemies" from="." to="Combat_System/enemy_health5" method="_on_given_enemies"]
 [connection signal="health_update" from="player" to="Combat_System/player_health" method="_on_player_health_update"]
 [connection signal="new_turn" from="player" to="player" method="_on_new_turn"]
 [connection signal="new_turn" from="player" to="Combat_System/Options/Attack_Button" method="_on_new_turn"]
@@ -134,5 +163,6 @@ text = ""
 [connection signal="Mare_Sonus" from="Combat_System/Aquarium_Inventory/Container/Coastal_Section/bluefin_bass" to="enemy5" method="_on_mare_sonus"]
 [connection signal="Fluctus_Scutum" from="Combat_System/Aquarium_Inventory/Container/Coastal_Section/sun_fish" to="player" method="_on_fluctus_scutum"]
 [connection signal="Maritimum_Remedium" from="Combat_System/Aquarium_Inventory/Container/Coastal_Section/blowfish" to="player" method="_on_maritimum_remedium"]
+[connection signal="end_turn_popup" from="Combat_System/Select_Popup" to="Combat_System" method="_on_turn_ending_button_pressed"]
 
 [editable path="Combat_System"]
