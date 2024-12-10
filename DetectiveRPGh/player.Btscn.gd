@@ -2,7 +2,7 @@ extends CharacterBody3D
 @export var speed = 5
 var fall_acceleration = 50
 var target_velocity = Vector3.ZERO
-var health = 10
+var health = GlobalVariables.enemy_health_max
 var pHealth = GlobalVariables.playerHealthMax
 var is_dead = false
 @export var character_num:int
@@ -12,6 +12,7 @@ var initial_enemy_amount = 0
 @export var is_selected = false
 var is_player_blocking = false
 var is_disabled = false
+var enemy_damage_amount = 0
 
 signal health_update(health)
 signal enemy_death()
@@ -19,6 +20,12 @@ signal new_turn()
 signal player_damaged()
 signal player_death()
 signal selection_update(is_selected)
+signal character_num_share(character_num:int)
+
+signal ol_fishface_update(image:Texture)
+var ol_fishface_texture:Texture = get("res://ol_fishface_texture.tres")
+signal cultist_update(image:Texture, num:int)
+var cultist_texture:Texture = null #Add image later
 
 func _physics_process(delta):
 	var position = Vector3() 
@@ -101,7 +108,7 @@ func _on_player_damaged():
 	if not is_dead and character_num == 0 and not is_disabled:
 		for i in range(enemy_amount):
 			if not is_player_blocking and not GlobalVariables.is_defend_pressed and not GlobalVariables.current_selected_fish == 2:
-				pHealth -= 1
+				pHealth -= enemy_damage_amount
 			GlobalVariables.playerHealth = pHealth
 			health_update.emit(pHealth)
 	if GlobalVariables.is_defend_pressed:
@@ -120,3 +127,26 @@ func _on_defend_button_pressed():
 
 func _on_fluctus_scutum():
 	is_player_blocking = true
+
+
+func _on_encounter_damage(atk_value):
+	enemy_damage_amount = atk_value
+
+
+func _on_encounter_health(health_max):
+	GlobalVariables.enemy_health_max = health_max
+	health = health_max
+
+
+func _on_encounter_type(enemy_type):
+	if enemy_type == 1:
+		character_num_share.emit(character_num)
+		pass #TODO Cultist update
+	elif enemy_type == 2:
+		character_num_share.emit(character_num)
+		pass #TODO Cultist fight #2 update
+	elif enemy_type == 3:
+		character_num_share.emit(character_num)
+		ol_fishface_update.emit(ol_fishface_texture)
+	else:
+		print("Error: enemy_type not defined yet")

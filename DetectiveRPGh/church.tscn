@@ -21,6 +21,7 @@ script = ExtResource("4_dtjrv")
 [node name="Enemy" parent="." instance=ExtResource("5_48kfx")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.6623, 1.59333, -48.3706)
 script = ExtResource("6_c8l4i")
+encounter_num = 3
 
 [node name="LoadingZone" parent="." instance=ExtResource("7_756pd")]
 transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 1, -13.5551, 0.992652, 2.0619)

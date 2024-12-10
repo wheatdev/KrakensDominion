@@ -23,7 +23,7 @@ transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 
 transform = Transform3D(1, 0, 0, 0, -0.641945, 0.766751, 0, -0.766751, -0.641945, 0, 13.5496, -8.79927)
 
 [node name="player" parent="." instance=ExtResource("2_gghu6")]
-transform = Transform3D(7, 0, 0, 0, 4.94975, 4.94975, 0, -4.94975, 4.94975, -6.36789, 10.3432, 3.57075)
+transform = Transform3D(4, 0, 0, 0, 2.82843, 2.82843, 0, -2.82843, 2.82843, -6.36789, 10.3432, 3.57075)
 
 [node name="enemy1" parent="." instance=ExtResource("3_rqr0e")]
 transform = Transform3D(2, 0, 0, 0, 1.41421, 4.59613, 0, -1.41421, 4.59613, 1.83161, 10.2249, 5.88405)
@@ -54,37 +54,49 @@ script = ExtResource("6_byqh3")
 script = ExtResource("6_y3g5w")
 
 [node name="Sword_Attack" parent="Combat_System/Attacks/VBoxContainer" index="1"]
+visible = false
 script = ExtResource("7_grhxg")
+
+[node name="Shallows_Tab" parent="Combat_System/Aquarium_Tabs" index="1"]
+visible = false
+
+[node name="Oceanic_Tab" parent="Combat_System/Aquarium_Tabs" index="2"]
+visible = false
+
+[node name="Abyssal_Tab" parent="Combat_System/Aquarium_Tabs" index="3"]
+visible = false
+
+[node name="Volcanic_Tab" parent="Combat_System/Aquarium_Tabs" index="4"]
+visible = false
+
+[node name="Glacial_Tab" parent="Combat_System/Aquarium_Tabs" index="5"]
+visible = false
 
 [node name="Sacrifice_Button" parent="Combat_System/Select_Popup" index="1"]
 script = ExtResource("6_ius45")
 
 [node name="player_health" parent="Combat_System" index="5"]
-visible = true
 text = ""
 
 [node name="enemy_health" parent="Combat_System" index="6"]
-visible = true
 number_indicator = 1
 
 [node name="enemy_health2" parent="Combat_System" index="7"]
-visible = true
 number_indicator = 2
 
 [node name="enemy_health3" parent="Combat_System" index="8"]
-visible = true
 number_indicator = 3
 
 [node name="enemy_health4" parent="Combat_System" index="9"]
-visible = true
 number_indicator = 4
 
 [node name="enemy_health5" parent="Combat_System" index="10"]
-visible = true
 number_indicator = 5
 
 [node name="About_Popup" parent="Combat_System" index="11"]
 visible = true
+modulate = Color(1, 1, 1, 1)
+theme_override_colors/default_color = Color(0, 0.917647, 0.188235, 1)
 
 [connection signal="current_enemy" from="." to="enemy1" method="on_current_enemy"]
 [connection signal="current_enemy" from="." to="enemy2" method="on_current_enemy"]
@@ -92,6 +104,26 @@ visible = true
 [connection signal="current_enemy" from="." to="enemy4" method="on_current_enemy"]
 [connection signal="current_enemy" from="." to="enemy5" method="on_current_enemy"]
 [connection signal="current_enemy" from="." to="Combat_System" method="_on_get_current_enemy"]
+[connection signal="encounter_damage" from="." to="enemy1" method="_on_encounter_damage"]
+[connection signal="encounter_damage" from="." to="enemy2" method="_on_encounter_damage"]
+[connection signal="encounter_damage" from="." to="enemy3" method="_on_encounter_damage"]
+[connection signal="encounter_damage" from="." to="enemy4" method="_on_encounter_damage"]
+[connection signal="encounter_damage" from="." to="enemy5" method="_on_encounter_damage"]
+[connection signal="encounter_health" from="." to="enemy1" method="_on_encounter_health"]
+[connection signal="encounter_health" from="." to="enemy2" method="_on_encounter_health"]
+[connection signal="encounter_health" from="." to="enemy3" method="_on_encounter_health"]
+[connection signal="encounter_health" from="." to="enemy4" method="_on_encounter_health"]
+[connection signal="encounter_health" from="." to="enemy5" method="_on_encounter_health"]
+[connection signal="encounter_health" from="." to="Combat_System/enemy_health" method="_on_encounter_health"]
+[connection signal="encounter_health" from="." to="Combat_System/enemy_health2" method="_on_encounter_health"]
+[connection signal="encounter_health" from="." to="Combat_System/enemy_health3" method="_on_encounter_health"]
+[connection signal="encounter_health" from="." to="Combat_System/enemy_health4" method="_on_encounter_health"]
+[connection signal="encounter_health" from="." to="Combat_System/enemy_health5" method="_on_encounter_health"]
+[connection signal="encounter_type" from="." to="enemy1" method="_on_encounter_type"]
+[connection signal="encounter_type" from="." to="enemy2" method="_on_encounter_type"]
+[connection signal="encounter_type" from="." to="enemy3" method="_on_encounter_type"]
+[connection signal="encounter_type" from="." to="enemy4" method="_on_encounter_type"]
+[connection signal="encounter_type" from="." to="enemy5" method="_on_encounter_type"]
 [connection signal="enemies" from="." to="player" method="_on_battle_enemies"]
 [connection signal="enemies" from="." to="enemy1" method="_on_battle_enemies"]
 [connection signal="enemies" from="." to="enemy2" method="_on_battle_enemies"]

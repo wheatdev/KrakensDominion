@@ -1,14 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://d2hiyjvlg48mv"]
+[gd_scene load_steps=8 format=3 uid="uid://d2hiyjvlg48mv"]
 
 [ext_resource type="Script" path="res://player.Btscn.gd" id="1_rqpwj"]
-[ext_resource type="Texture2D" uid="uid://cuw33v120le2k" path="res://ol_fishface.png" id="2_183ei"]
+[ext_resource type="Script" path="res://enemy_texture.gd" id="2_yug3o"]
 [ext_resource type="Texture2D" uid="uid://bxdo0h62if510" path="res://square-outline-xxl.png" id="3_8dvnq"]
 [ext_resource type="Script" path="res://selection_outline.gd" id="4_0dxgu"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_m41de"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qm8hi"]
-albedo_texture = ExtResource("2_183ei")
 
 [sub_resource type="ORMMaterial3D" id="ORMMaterial3D_8qcry"]
 transparency = 3
@@ -25,12 +22,15 @@ script = ExtResource("1_rqpwj")
 shape = SubResource("BoxShape3D_m41de")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-material_override = SubResource("StandardMaterial3D_qm8hi")
 mesh = SubResource("QuadMesh_h4bee")
+script = ExtResource("2_yug3o")
 
 [node name="selection_outline" type="Sprite3D" parent="."]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
 texture = ExtResource("3_8dvnq")
 script = ExtResource("4_0dxgu")
 
+[connection signal="character_num_share" from="." to="MeshInstance3D" method="_on_character_num_share"]
+[connection signal="cultist_update" from="." to="MeshInstance3D" method="_on_cultist_update"]
+[connection signal="ol_fishface_update" from="." to="MeshInstance3D" method="_on_ol_fishface_update"]
 [connection signal="selection_update" from="." to="selection_outline" method="_on_selection_update"]

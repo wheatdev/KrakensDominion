@@ -186,7 +186,6 @@ mouse_filter = 2
 script = ExtResource("1_buiva")
 
 [node name="Options" type="BoxContainer" parent="."]
-modulate = Color(0.176471, 0.619608, 0.913725, 1)
 layout_mode = 2
 offset_left = 341.0
 offset_top = 417.0
@@ -200,6 +199,7 @@ vertical = true
 [node name="Attack_Button" type="Button" parent="Options"]
 layout_mode = 2
 size_flags_vertical = 3
+theme_override_colors/font_color = Color(0.741176, 0.827451, 1, 1)
 theme_override_styles/normal = ExtResource("8_7g6ep")
 theme_override_styles/hover = ExtResource("8_7g6ep")
 theme_override_styles/pressed = ExtResource("8_7g6ep")
@@ -209,6 +209,7 @@ script = ExtResource("3_xy3ja")
 [node name="Inventory_Button" type="Button" parent="Options"]
 layout_mode = 2
 size_flags_vertical = 3
+theme_override_colors/font_color = Color(0.741176, 0.827451, 1, 1)
 theme_override_styles/normal = ExtResource("8_7g6ep")
 theme_override_styles/hover = ExtResource("8_7g6ep")
 theme_override_styles/pressed = ExtResource("8_7g6ep")
@@ -217,6 +218,7 @@ script = ExtResource("4_17ocx")
 
 [node name="Defend_Button" type="Button" parent="Options"]
 layout_mode = 2
+theme_override_colors/font_color = Color(0.741176, 0.827451, 1, 1)
 theme_override_styles/normal = ExtResource("8_7g6ep")
 theme_override_styles/hover = ExtResource("8_7g6ep")
 theme_override_styles/pressed = ExtResource("8_7g6ep")
@@ -450,11 +452,10 @@ layout_mode = 2
 text = "Remove"
 
 [node name="player_health" type="RichTextLabel" parent="."]
-visible = false
 layout_mode = 0
 offset_left = 86.0
 offset_top = 369.0
-offset_right = 270.0
+offset_right = 283.0
 offset_bottom = 402.0
 theme_override_fonts/normal_font = ExtResource("24_30ym3")
 theme_override_font_sizes/normal_font_size = 20
@@ -463,12 +464,11 @@ text = "10/10 Health"
 script = ExtResource("25_iaypg")
 
 [node name="enemy_health" type="RichTextLabel" parent="."]
-visible = false
 layout_mode = 0
-offset_left = 479.0
-offset_top = 329.0
-offset_right = 577.0
-offset_bottom = 362.0
+offset_left = 480.0
+offset_top = 337.0
+offset_right = 574.0
+offset_bottom = 370.0
 theme_override_fonts/normal_font = ExtResource("24_30ym3")
 theme_override_font_sizes/normal_font_size = 20
 theme_override_styles/normal = ExtResource("8_7g6ep")
@@ -476,7 +476,6 @@ text = "10/10"
 script = ExtResource("26_erior")
 
 [node name="enemy_health2" type="RichTextLabel" parent="."]
-visible = false
 layout_mode = 0
 offset_left = 583.0
 offset_top = 237.0
@@ -489,7 +488,6 @@ text = "10/10"
 script = ExtResource("26_erior")
 
 [node name="enemy_health3" type="RichTextLabel" parent="."]
-visible = false
 layout_mode = 0
 offset_left = 650.0
 offset_top = 339.0
@@ -502,7 +500,6 @@ text = "10/10"
 script = ExtResource("26_erior")
 
 [node name="enemy_health4" type="RichTextLabel" parent="."]
-visible = false
 layout_mode = 0
 offset_left = 729.0
 offset_top = 237.0
@@ -515,7 +512,6 @@ text = "10/10"
 script = ExtResource("26_erior")
 
 [node name="enemy_health5" type="RichTextLabel" parent="."]
-visible = false
 layout_mode = 0
 offset_left = 816.0
 offset_top = 336.0
@@ -554,6 +550,7 @@ script = ExtResource("33_4hp13")
 [node name="RichTextLabel" type="RichTextLabel" parent="Sacrifice_Popup"]
 layout_mode = 2
 size_flags_vertical = 3
+theme_override_colors/default_color = Color(1, 0.317647, 0.909804, 1)
 theme_override_fonts/normal_font = ExtResource("33_bi366")
 theme_override_font_sizes/normal_font_size = 10
 theme_override_styles/normal = ExtResource("8_7g6ep")
@@ -564,11 +561,13 @@ tab_size = 2
 
 [node name="Sacrifice_accept" type="Button" parent="Sacrifice_Popup"]
 layout_mode = 2
+theme_override_colors/font_color = Color(0, 0.92549, 0.47451, 1)
 theme_override_fonts/font = ExtResource("33_bi366")
 text = "Yes"
 
 [node name="Sacrifice_deny" type="Button" parent="Sacrifice_Popup"]
 layout_mode = 2
+theme_override_colors/font_color = Color(0.913725, 0, 0, 1)
 theme_override_fonts/font = ExtResource("33_bi366")
 text = "No"
 

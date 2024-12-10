@@ -7,6 +7,9 @@ var playerAttack = 3
 var playerSpeed = 5
 var playerMagic = 10
 
+var enemy_health_max = 10
+var encounter = 0
+
 var fish1 = 10
 var fish2 = 3
 var fish3 = 4
